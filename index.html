@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛒 Costco Regent Ave — Weekly Grocery List</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2ecc71;--green-dark:#1a8a4a;
+    --blue-dark:#1a6fa0;--orange:#f0932b;--yellow:#f9ca24;
+    --bg:#fffef5;--radius:20px;
+    --shadow:0 8px 32px rgba(0,0,0,.10);
+    --shadow-lg:0 16px 48px rgba(0,0,0,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;background:var(--bg);color:#2d3436;min-height:100vh;
+    background-image:
+      radial-gradient(circle at 10% 10%,rgba(46,204,113,.07) 0%,transparent 50%),
+      radial-gradient(circle at 90% 15%,rgba(52,152,219,.07) 0%,transparent 50%);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#c0392b 0%,#e74c3c 50%,#f1948a 100%);
+padding:44px 32px 88px;text-align:center;position:relative;overflow:hidden;
+clip-path:ellipse(110% 100% at 50% 0%);}
+.hero-emoji-row{font-size:2.2rem;letter-spacing:6px;margin-bottom:12px;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero h1{font-family:‘Fredoka One’,cursive;font-size:clamp(1.8rem,5vw,3.2rem);color:#fff;
+text-shadow:0 4px 16px rgba(0,0,0,.2);margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,.92);font-size:1rem;font-weight:700;letter-spacing:.5px;}
+.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;}
+.badge{background:rgba(255,255,255,.22);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.35);
+color:#fff;padding:5px 14px;border-radius:999px;font-weight:800;font-size:.8rem;}
+
+.container{max-width:1050px;margin:0 auto;padding:0 18px 60px;}
+
+/* NAV */
+.nav-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:-42px 0 32px;position:relative;z-index:10;}
+.nav-link{background:#fff;border:3px solid #e0e0e0;border-radius:999px;padding:8px 20px;
+font-family:‘Fredoka One’,cursive;font-size:.92rem;cursor:pointer;text-decoration:none;color:#2d3436;
+box-shadow:var(–shadow);transition:all .2s;display:flex;align-items:center;gap:6px;}
+.nav-link:hover,.nav-link.active{background:var(–green);color:#fff;border-color:var(–green-dark);
+transform:translateY(-3px);box-shadow:0 6px 16px rgba(46,204,113,.35);}
+
+/* STORE ROUTE */
+.store-map{background:linear-gradient(135deg,#e8f5ff,#dceeff);border:3px solid #74b9ff;
+border-radius:var(–radius);padding:20px 24px;margin-bottom:28px;}
+.store-map h3{font-family:‘Fredoka One’,cursive;font-size:1.2rem;color:var(–blue-dark);
+margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.store-route{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
+.route-step{background:#fff;border:2px solid #74b9ff;border-radius:10px;
+padding:5px 12px;font-weight:800;font-size:.78rem;color:var(–blue-dark);}
+.route-arrow{color:#74b9ff;font-size:1rem;font-weight:900;}
+
+/* PROGRESS */
+.progress-bar-wrap{background:#e0e0e0;border-radius:999px;height:11px;margin:16px 0 6px;overflow:hidden;}
+.progress-bar{background:linear-gradient(90deg,var(–green-dark),var(–green));height:100%;border-radius:999px;transition:width .5s ease;width:0%;}
+.progress-label{font-size:.78rem;font-weight:800;color:var(–green-dark);text-align:right;margin-bottom:16px;}
+
+/* TIP BOX */
+.tip{background:linear-gradient(135deg,#fef9e7,#fdebd0);border:3px solid var(–yellow);
+border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;gap:11px;align-items:flex-start;}
+.tip-icon{font-size:1.6rem;flex-shrink:0;}
+.tip-text{font-size:.83rem;font-weight:700;line-height:1.6;color:#7a4a00;}
+.tip-text strong{color:#c67c10;}
+
+/* BUDGET */
+.budget{background:linear-gradient(135deg,var(–yellow),var(–orange));
+border-radius:var(–radius);padding:18px 24px;margin-bottom:28px;
+display:flex;flex-wrap:wrap;align-items:center;gap:14px;box-shadow:var(–shadow-lg);color:#fff;}
+.bb-label{font-family:‘Fredoka One’,cursive;font-size:1.3rem;}
+.bb-amount{font-family:‘Fredoka One’,cursive;font-size:2rem;}
+.bb-note{font-size:.82rem;font-weight:700;opacity:.95;margin-left:auto;max-width:420px;}
+
+/* AISLE CARD */
+.aisle-card{border-radius:var(–radius);margin-bottom:18px;overflow:hidden;
+box-shadow:var(–shadow);border:3px solid transparent;transition:box-shadow .2s;}
+.aisle-card:hover{box-shadow:var(–shadow-lg);}
+.aisle-header{padding:13px 20px;display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none;}
+.aisle-icon{font-size:1.8rem;}
+.aisle-name{font-family:‘Fredoka One’,cursive;font-size:1.2rem;}
+.aisle-meta{margin-left:auto;display:flex;gap:7px;align-items:center;}
+.pill{background:rgba(255,255,255,.28);border-radius:999px;padding:3px 11px;font-weight:800;font-size:.8rem;}
+.aisle-chevron{font-size:.9rem;transition:transform .3s;}
+.aisle-card.collapsed .aisle-chevron{transform:rotate(-90deg);}
+.aisle-items{background:#fff;}
+.aisle-card.collapsed .aisle-items{display:none;}
+
+/* ITEM ROW */
+.item-row{display:grid;grid-template-columns:36px 28px 1fr auto auto;
+align-items:center;gap:9px;padding:10px 18px;
+border-bottom:1.5px solid #f0f0f0;transition:background .15s;}
+.item-row:last-child{border-bottom:none;}
+.item-row:hover{background:#fafff9;}
+.item-row.checked-row{opacity:.55;}
+
+.item-check{width:22px;height:22px;border-radius:6px;border:2.5px solid #ccc;
+cursor:pointer;display:flex;align-items:center;justify-content:center;
+transition:all .2s;flex-shrink:0;font-size:.9rem;}
+.item-check.checked{border-color:var(–green-dark);background:var(–green-dark);color:#fff;}
+
+.item-emoji{font-size:1.3rem;text-align:center;}
+.item-info{min-width:0;}
+.item-name{font-weight:800;font-size:.88rem;color:#2d3436;}
+.item-detail{font-size:.74rem;color:#999;font-weight:600;margin-top:1px;}
+.item-qty{font-size:.78rem;font-weight:800;color:#666;text-align:right;white-space:nowrap;}
+.item-price{font-size:.85rem;font-weight:800;color:var(–green-dark);text-align:right;white-space:nowrap;min-width:50px;}
+
+/* AISLE COLOUR THEMES */
+.ac-entrance{border-color:#9b59b6;}.ac-entrance .aisle-header{background:linear-gradient(135deg,#8e44ad,#a29bfe);color:#fff;}
+.ac-bakery{border-color:#f0932b;}.ac-bakery .aisle-header{background:linear-gradient(135deg,#d68910,var(–yellow));color:#fff;}
+.ac-meat{border-color:#c0392b;}.ac-meat .aisle-header{background:linear-gradient(135deg,#922b21,#e74c3c);color:#fff;}
+.ac-seafood{border-color:#1abc9c;}.ac-seafood .aisle-header{background:linear-gradient(135deg,#0e8f77,#1abc9c);color:#fff;}
+.ac-produce{border-color:#27ae60;}.ac-produce .aisle-header{background:linear-gradient(135deg,#1a8a4a,#2ecc71);color:#fff;}
+.ac-dairy{border-color:#2980b9;}.ac-dairy .aisle-header{background:linear-gradient(135deg,#1a6fa0,#74b9ff);color:#fff;}
+.ac-paper{border-color:#95a5a6;}.ac-paper .aisle-header{background:linear-gradient(135deg,#566573,#aab7b8);color:#fff;}
+.ac-household{border-color:#fd79a8;}.ac-household .aisle-header{background:linear-gradient(135deg,#c0392b,#fd79a8);color:#fff;}
+.ac-grocery{border-color:#d4ac0d;}.ac-grocery .aisle-header{background:linear-gradient(135deg,#9a7d0a,var(–yellow));color:#fff;}
+.ac-frozen{border-color:#2471a3;}.ac-frozen .aisle-header{background:linear-gradient(135deg,#1a4a80,#74b9ff);color:#fff;}
+.ac-sauces{border-color:#ca6f1e;}.ac-sauces .aisle-header{background:linear-gradient(135deg,#935116,#e59866);color:#fff;}
+.ac-health{border-color:#7d3c98;}.ac-health .aisle-header{background:linear-gradient(135deg,#6c3483,#a29bfe);color:#fff;}
+
+.deco-emoji{position:fixed;font-size:1.6rem;opacity:.08;pointer-events:none;
+animation:fd 7s ease-in-out infinite;z-index:0;}
+@keyframes fd{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+.footer{text-align:center;padding:28px;font-size:.78rem;color:#aaa;font-weight:700;}
+.footer a{color:var(–green-dark);}
+
+@media print{
+.nav-links,.hero-emoji-row,.deco-emoji,.progress-bar-wrap,.progress-label,.tip{display:none!important;}
+.aisle-card.collapsed .aisle-items{display:block!important;}
+body{background:#fff;}
+.item-check{border:2px solid #333!important;background:none!important;color:transparent!important;}
+}
+</style>
+
+</head>
+<body>
+
+<div class="deco-emoji" style="top:10%;left:1%">🛒</div>
+<div class="deco-emoji" style="top:35%;right:1%;animation-delay:1s">🥦</div>
+<div class="deco-emoji" style="top:60%;left:.8%;animation-delay:2s">🐟</div>
+<div class="deco-emoji" style="top:80%;right:1%;animation-delay:.5s">🥚</div>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="hero-emoji-row">🛒🏪🥩🐟🥦🧀🥚🥫❄️💊</div>
+  <h1>Costco Regent Ave 🛒</h1>
+  <p>1499 Regent Ave W, Winnipeg · Weekly Grocery List · In-Store Walk Order</p>
+  <div class="hero-badges">
+    <span class="badge">📍 1499 Regent Ave W, Winnipeg</span>
+    <span class="badge">🗓️ 1-Week Supply</span>
+    <span class="badge">💰 Est. ~$145–165 CAD</span>
+    <span class="badge">✅ 45 Items</span>
+    <span class="badge">🖨️ Print-Friendly</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="nav-links">
+    <a href="#" class="nav-link">🍽️ Meal Plan + Recipes</a>
+    <a href="#" class="nav-link">📊 Nutrition Breakdown</a>
+    <a href="#" class="nav-link active">🛒 Costco Grocery List</a>
+  </div>
+
+  <!-- STORE ROUTE -->
+
+  <div class="store-map">
+    <h3>🗺️ Your Walk Order — Regent Ave Costco</h3>
+    <div class="store-route">
+      <div class="route-step">🚪 Entrance</div><span class="route-arrow">→</span>
+      <div class="route-step">🍞 Bakery</div><span class="route-arrow">→</span>
+      <div class="route-step">🥩 Fresh Meat</div><span class="route-arrow">→</span>
+      <div class="route-step">🐟 Seafood</div><span class="route-arrow">→</span>
+      <div class="route-step">🥦 Fresh Produce</div><span class="route-arrow">→</span>
+      <div class="route-step">🧀 Dairy & Eggs</div><span class="route-arrow">→</span>
+      <div class="route-step">🧻 Paper & Cleaning</div><span class="route-arrow">→</span>
+      <div class="route-step">🏠 Household Consumables</div><span class="route-arrow">→</span>
+      <div class="route-step">🥫 Grocery Aisles</div><span class="route-arrow">→</span>
+      <div class="route-step">❄️ Frozen Seafood</div><span class="route-arrow">→</span>
+      <div class="route-step">🫙 Sauces & Oils</div><span class="route-arrow">→</span>
+      <div class="route-step">💊 Health & Supplements</div>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">0 of 45 items checked</div>
+
+  <div class="tip">
+    <div class="tip-icon">💡</div>
+    <div class="tip-text">
+      <strong>Regent Ave Costco tips:</strong> Mon–Fri mornings are quietest. This list is ordered exactly as you walk through the store — top to bottom, aisle by aisle. Check items off as you go. Prices are approximate <strong>CAD (March 2026)</strong>.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       1. ENTRANCE
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-entrance" id="aisle-entrance">
+    <div class="aisle-header" onclick="toggleAisle('entrance')">
+      <span class="aisle-icon">🚪</span>
+      <span class="aisle-name">1 · Entrance</span>
+      <div class="aisle-meta"><span class="pill">1 item</span><span class="pill">—</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">📋</div>
+        <div class="item-info"><div class="item-name">Grab a cart</div><div class="item-detail">Pen/receipt at kiosk if needed</div></div>
+        <div class="item-qty">—</div><div class="item-price">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       2. BAKERY
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-bakery" id="aisle-bakery">
+    <div class="aisle-header" onclick="toggleAisle('bakery')">
+      <span class="aisle-icon">🍞</span>
+      <span class="aisle-name">2 · Bakery & Bread</span>
+      <div class="aisle-meta"><span class="pill">2 items</span><span class="pill">~$14</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍞</div>
+        <div class="item-info"><div class="item-name">Dempster's Whole Grain Bread</div><div class="item-detail">2-pack · Mon, Tue, Fri, Sun breakfasts</div></div>
+        <div class="item-qty">2-pack (~900g)</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫓</div>
+        <div class="item-info"><div class="item-name">Ryvita Rye Crispbreads</div><div class="item-detail">Wed breakfast · Near artisan breads</div></div>
+        <div class="item-qty">1 pkg</div><div class="item-price">~$6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       3. FRESH MEAT
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-meat" id="aisle-meat">
+    <div class="aisle-header" onclick="toggleAisle('meat')">
+      <span class="aisle-icon">🥩</span>
+      <span class="aisle-name">3 · Fresh Meat & Deli</span>
+      <div class="aisle-meta"><span class="pill">2 items</span><span class="pill">~$28</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥚</div>
+        <div class="item-info"><div class="item-name">Extra Firm Tofu (Sunrise Soya or Kirkland)</div><div class="item-detail">Near deli/refrigerated · Tue breakfast, Sat lunch, Mon dinner</div></div>
+        <div class="item-qty">3-pack (350g each)</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🐟</div>
+        <div class="item-info"><div class="item-name">MB Supreme White Fish Fillet (Cod or Haddock)</div><div class="item-detail">✨ Winnipeg exclusive · Ask butcher if not displayed · Tue & Fri dinner</div></div>
+        <div class="item-qty">~1 kg portioned pkg</div><div class="item-price">~$20</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       4. SEAFOOD
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-seafood" id="aisle-seafood">
+    <div class="aisle-header" onclick="toggleAisle('seafood')">
+      <span class="aisle-icon">🐟</span>
+      <span class="aisle-name">4 · Fresh Seafood</span>
+      <div class="aisle-meta"><span class="pill">3 items</span><span class="pill">~$58</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍣</div>
+        <div class="item-info"><div class="item-name">Kirkland Atlantic Salmon Fillets</div><div class="item-detail">Skin-on preferred · Mon lunch, Thu dinner</div></div>
+        <div class="item-qty">~700g (2 fillets)</div><div class="item-price">~$20</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍤</div>
+        <div class="item-info"><div class="item-name">Sea Scallops (dry-packed only)</div><div class="item-detail">❗ NOT wet/brine-packed — won't sear · Wed & Sat dinner</div></div>
+        <div class="item-qty">~400g</div><div class="item-price">~$20</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🐟</div>
+        <div class="item-info"><div class="item-name">Kirkland Smoked Salmon (Pacific)</div><div class="item-detail">Refrigerated section · Sun breakfast</div></div>
+        <div class="item-qty">454g (1 lb) pkg</div><div class="item-price">~$18</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       5. FRESH PRODUCE
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-produce" id="aisle-produce">
+    <div class="aisle-header" onclick="toggleAisle('produce')">
+      <span class="aisle-icon">🥦</span>
+      <span class="aisle-name">5 · Fresh Produce</span>
+      <div class="aisle-meta"><span class="pill">17 items</span><span class="pill">~$52</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥬</div>
+        <div class="item-info"><div class="item-name">Organic Baby Spinach (Kirkland)</div><div class="item-detail">Used every day — breakfasts & dinners</div></div>
+        <div class="item-qty">1 kg tub</div><div class="item-price">~$7</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥗</div>
+        <div class="item-info"><div class="item-name">Mixed Spring Greens / Arugula (Kirkland)</div><div class="item-detail">Salads Thu, Fri, Sat, Sun</div></div>
+        <div class="item-qty">907g clamshell</div><div class="item-price">~$7</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍅</div>
+        <div class="item-info"><div class="item-name">Cherry Tomatoes (Campari)</div><div class="item-detail">Used in almost every meal</div></div>
+        <div class="item-qty">1.5 kg</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥒</div>
+        <div class="item-info"><div class="item-name">English Cucumbers</div><div class="item-detail">Multiple meals all week</div></div>
+        <div class="item-qty">6-pack</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫑</div>
+        <div class="item-info"><div class="item-name">Mini Sweet Bell Peppers (mixed colours)</div><div class="item-detail">Mon dinner, Wed lunch, Fri breakfast, Sat & Sun dinners</div></div>
+        <div class="item-qty">2 lb bag</div><div class="item-price">~$7</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥦</div>
+        <div class="item-info"><div class="item-name">Broccoli Crowns</div><div class="item-detail">Mon & Thu dinner</div></div>
+        <div class="item-qty">2-pack (~1.4kg)</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥒</div>
+        <div class="item-info"><div class="item-name">Zucchini</div><div class="item-detail">Wed dinner, Sat dinner, Sun dinner skewers</div></div>
+        <div class="item-qty">4-pack (~1.2kg)</div><div class="item-price">~$4</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍄</div>
+        <div class="item-info"><div class="item-name">Cremini / Baby Bella Mushrooms</div><div class="item-detail">Wed breakfast sauté</div></div>
+        <div class="item-qty">907g (2 lb)</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧅</div>
+        <div class="item-info"><div class="item-name">Yellow Onions</div><div class="item-detail">Cooking base — used all week</div></div>
+        <div class="item-qty">5 lb bag</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧅</div>
+        <div class="item-info"><div class="item-name">Red Onions</div><div class="item-detail">Salsas, salads, skewers</div></div>
+        <div class="item-qty">3 lb bag</div><div class="item-price">~$4</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧄</div>
+        <div class="item-info"><div class="item-name">Garlic (pre-peeled jar or whole bulbs)</div><div class="item-detail">Used every day</div></div>
+        <div class="item-qty">Pre-peeled jar or 3-bulb pack</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧄</div>
+        <div class="item-info"><div class="item-name">Fresh Ginger Root</div><div class="item-detail">Mon dinner, Thu lunch, Fri curry</div></div>
+        <div class="item-qty">~200g knob</div><div class="item-price">~$3</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥔</div>
+        <div class="item-info"><div class="item-name">Baby Potatoes (Yellow/Creamer)</div><div class="item-detail">Tue dinner, Sat & Sun dinners</div></div>
+        <div class="item-qty">3 lb bag</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍠</div>
+        <div class="item-info"><div class="item-name">Sweet Potatoes</div><div class="item-detail">Sat lunch Buddha bowl</div></div>
+        <div class="item-qty">5 lb bag (use 2)</div><div class="item-price">~$6</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥑</div>
+        <div class="item-info"><div class="item-name">Hass Avocados</div><div class="item-detail">Mon breakfast, Thu lunch, Fri & Sat · Buy a mix of ripe + firm</div></div>
+        <div class="item-qty">6–8 pack</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍋</div>
+        <div class="item-info"><div class="item-name">Lemons</div><div class="item-detail">Dressings & garnishes all week</div></div>
+        <div class="item-qty">5 lb bag (~10 lemons)</div><div class="item-price">~$6</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍊</div>
+        <div class="item-info"><div class="item-name">Navel or Cara Cara Oranges</div><div class="item-detail">Mon breakfast + snacking</div></div>
+        <div class="item-qty">8 lb bag</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍐</div>
+        <div class="item-info"><div class="item-name">Bartlett or Bosc Pears</div><div class="item-detail">Sun lunch dessert + snacking</div></div>
+        <div class="item-qty">3 lb bag (~6 pears)</div><div class="item-price">~$6</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥭</div>
+        <div class="item-info"><div class="item-name">Ataulfo / Champagne Mangoes</div><div class="item-detail">Thu lunch salsa, Fri dinner salsa</div></div>
+        <div class="item-qty">Box of 6</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌿</div>
+        <div class="item-info"><div class="item-name">Fresh Herb Multipack (dill, parsley, cilantro, mint)</div><div class="item-detail">Check produce end-caps</div></div>
+        <div class="item-qty">Multipack</div><div class="item-price">~$4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       6. DAIRY & EGGS
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-dairy" id="aisle-dairy">
+    <div class="aisle-header" onclick="toggleAisle('dairy')">
+      <span class="aisle-icon">🧀</span>
+      <span class="aisle-name">6 · Dairy & Eggs</span>
+      <div class="aisle-meta"><span class="pill">4 items</span><span class="pill">~$34</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥚</div>
+        <div class="item-info"><div class="item-name">Large Free-Range Eggs (Kirkland)</div><div class="item-detail">Mon, Wed, Fri, Sat, Sun breakfasts + Tue lunch</div></div>
+        <div class="item-qty">2 dozen (24)</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧀</div>
+        <div class="item-info"><div class="item-name">Paneer (Nanak or Gopi brand)</div><div class="item-detail">Near specialty cheeses · Wed lunch, Fri breakfast, Sun dinner</div></div>
+        <div class="item-qty">400g block</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫙</div>
+        <div class="item-info"><div class="item-name">Liberté 0% Greek Yogurt (Plain)</div><div class="item-detail">Wed lunch dressing, Fri raita, Sun tzatziki</div></div>
+        <div class="item-qty">750g tub</div><div class="item-price">~$7</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥛</div>
+        <div class="item-info"><div class="item-name">Silk Unsweetened Almond Milk</div><div class="item-detail">Thu breakfast smoothie bowl</div></div>
+        <div class="item-qty">2-pack (1.89L each)</div><div class="item-price">~$7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       7. PAPER & CLEANING
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-paper" id="aisle-paper">
+    <div class="aisle-header" onclick="toggleAisle('paper')">
+      <span class="aisle-icon">🧻</span>
+      <span class="aisle-name">7 · Paper & Cleaning Products</span>
+      <div class="aisle-meta"><span class="pill">2 items (if needed)</span><span class="pill">—</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧻</div>
+        <div class="item-info"><div class="item-name">Kirkland Paper Towels</div><div class="item-detail">Stock item — only grab if running low</div></div>
+        <div class="item-qty">12-pack</div><div class="item-price">~$28</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🚽</div>
+        <div class="item-info"><div class="item-name">Kirkland Bath Tissue</div><div class="item-detail">Stock item — only grab if running low</div></div>
+        <div class="item-qty">30-pack</div><div class="item-price">~$24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       8. HOUSEHOLD CONSUMABLES
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-household" id="aisle-household">
+    <div class="aisle-header" onclick="toggleAisle('household')">
+      <span class="aisle-icon">🏠</span>
+      <span class="aisle-name">8 · Household Consumables</span>
+      <div class="aisle-meta"><span class="pill">2 items (if needed)</span><span class="pill">—</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🛍️</div>
+        <div class="item-info"><div class="item-name">Kirkland Gallon Freezer Zip-Lock Bags</div><div class="item-detail">For portioning & freezing bulk meat and fish</div></div>
+        <div class="item-qty">150-count box</div><div class="item-price">~$18</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧴</div>
+        <div class="item-info"><div class="item-name">Dish Soap or Hand Soap</div><div class="item-detail">Stock item — only grab if running low</div></div>
+        <div class="item-qty">2-pack</div><div class="item-price">~$12</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       9. GROCERY AISLES
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-grocery" id="aisle-grocery">
+    <div class="aisle-header" onclick="toggleAisle('grocery')">
+      <span class="aisle-icon">🥫</span>
+      <span class="aisle-name">9 · Grocery Aisles — Dry, Canned & Pantry</span>
+      <div class="aisle-meta"><span class="pill">11 items</span><span class="pill">~$102</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫘</div>
+        <div class="item-info"><div class="item-name">Canned Chickpeas, No Salt Added</div><div class="item-detail">Tue lunch, Fri lunch, Sun salad · Rinse before use</div></div>
+        <div class="item-qty">6-pack (540ml ea)</div><div class="item-price">~$10</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍲</div>
+        <div class="item-info"><div class="item-name">Canned Brown/Green Lentils, No Salt Added</div><div class="item-detail">Thu dinner, Sun lunch soup</div></div>
+        <div class="item-qty">4-pack (540ml ea)</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍅</div>
+        <div class="item-info"><div class="item-name">Canned Diced Tomatoes, No Salt Added</div><div class="item-detail">Fri lunch curry base</div></div>
+        <div class="item-qty">8-pack (796ml ea)</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥥</div>
+        <div class="item-info"><div class="item-name">Canned Light Coconut Milk</div><div class="item-detail">Fri lunch curry · LIGHT not full-fat</div></div>
+        <div class="item-qty">6-pack (398ml ea)</div><div class="item-price">~$10</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍚</div>
+        <div class="item-info"><div class="item-name">Kirkland Organic Quinoa</div><div class="item-detail">Mon lunch, Fri dinner · Rinse well before cooking</div></div>
+        <div class="item-qty">2 kg bag</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍚</div>
+        <div class="item-info"><div class="item-name">Brown Rice (Kirkland Long-Grain)</div><div class="item-detail">Fri lunch curry rice · Bulk bag lasts months</div></div>
+        <div class="item-qty">4.5 kg bag</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌱</div>
+        <div class="item-info"><div class="item-name">Kirkland Chia Seeds</div><div class="item-detail">Thu breakfast smoothie bowl</div></div>
+        <div class="item-qty">1.36 kg bag</div><div class="item-price">~$14</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌾</div>
+        <div class="item-info"><div class="item-name">Low-Sugar Granola (Nature's Path or similar)</div><div class="item-detail">Thu breakfast · Look for under 6g sugar per serving</div></div>
+        <div class="item-qty">1.36 kg bag</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫙</div>
+        <div class="item-info"><div class="item-name">Low-Sodium Vegetable or Chicken Stock</div><div class="item-detail">Sun lunch lentil soup</div></div>
+        <div class="item-qty">6-pack (946ml ea)</div><div class="item-price">~$12</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌿</div>
+        <div class="item-info"><div class="item-name">Spices: Cumin, Turmeric, Paprika, Garlic Powder, Oregano</div><div class="item-detail">Used all week · Kirkland large jars</div></div>
+        <div class="item-qty">Individual jars ×5</div><div class="item-price">~$5–8 ea</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍵</div>
+        <div class="item-info"><div class="item-name">Green Tea (Kirkland or Bigelow)</div><div class="item-detail">Tue & Fri breakfast · Supports liver health</div></div>
+        <div class="item-qty">100+ bag box</div><div class="item-price">~$10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       10. FROZEN SEAFOOD
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-frozen" id="aisle-frozen">
+    <div class="aisle-header" onclick="toggleAisle('frozen')">
+      <span class="aisle-icon">❄️</span>
+      <span class="aisle-name">10 · Frozen Seafood & Foods</span>
+      <div class="aisle-meta"><span class="pill">5 items</span><span class="pill">~$56</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🍤</div>
+        <div class="item-info"><div class="item-name">Kirkland Raw Shrimp (Peeled, Deveined, Tail-off)</div><div class="item-detail">31–40 count size · Mon dinner, Thu lunch, Sat dinner</div></div>
+        <div class="item-qty">1.36 kg bag</div><div class="item-price">~$22</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫘</div>
+        <div class="item-info"><div class="item-name">Frozen Shelled Edamame (no shells)</div><div class="item-detail">Sat lunch Buddha bowl</div></div>
+        <div class="item-qty">1 kg bag</div><div class="item-price">~$6</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫐</div>
+        <div class="item-info"><div class="item-name">Kirkland Frozen Mixed Berries</div><div class="item-detail">Tue & Thu breakfast, general snacking</div></div>
+        <div class="item-qty">2.27 kg bag</div><div class="item-price">~$16</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌽</div>
+        <div class="item-info"><div class="item-name">Frozen Corn Kernels (no salt added)</div><div class="item-detail">Sat dinner seafood salad</div></div>
+        <div class="item-qty">1 kg bag</div><div class="item-price">~$5</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🥦</div>
+        <div class="item-info"><div class="item-name">Frozen Broccoli Florets (backup)</div><div class="item-detail">Optional — good if fresh broccoli runs out mid-week</div></div>
+        <div class="item-qty">1.36 kg bag</div><div class="item-price">~$7</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       11. SAUCES & OILS
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-sauces" id="aisle-sauces">
+    <div class="aisle-header" onclick="toggleAisle('sauces')">
+      <span class="aisle-icon">🫙</span>
+      <span class="aisle-name">11 · Sauces & Oils</span>
+      <div class="aisle-meta"><span class="pill">3 items</span><span class="pill">~$34</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫙</div>
+        <div class="item-info"><div class="item-name">Kirkland Extra Virgin Olive Oil (cold-pressed)</div><div class="item-detail">Used every day for cooking</div></div>
+        <div class="item-qty">3L bottle</div><div class="item-price">~$18</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🧴</div>
+        <div class="item-info"><div class="item-name">Kirkland Low-Sodium Soy Sauce</div><div class="item-detail">Mon dinner stir-fry, Sat lunch · Low-sodium essential for fatty liver</div></div>
+        <div class="item-qty">1.89 L bottle</div><div class="item-price">~$8</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🫙</div>
+        <div class="item-info"><div class="item-name">Toasted Sesame Oil</div><div class="item-detail">Mon dinner stir-fry, Sat lunch dressing</div></div>
+        <div class="item-qty">500ml bottle</div><div class="item-price">~$8</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════
+       12. HEALTH & SUPPLEMENTS
+  ═══════════════════════════ -->
+
+  <div class="aisle-card ac-health" id="aisle-health">
+    <div class="aisle-header" onclick="toggleAisle('health')">
+      <span class="aisle-icon">💊</span>
+      <span class="aisle-name">12 · Health & Supplements</span>
+      <div class="aisle-meta"><span class="pill">4 items</span><span class="pill">~$90</span><span class="aisle-chevron">▼</span></div>
+    </div>
+    <div class="aisle-items">
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">☀️</div>
+        <div class="item-info"><div class="item-name">Kirkland Vitamin D3 (2000 IU)</div><div class="item-detail">600-count bottle — lasts ~2 years</div></div>
+        <div class="item-qty">600 softgels</div><div class="item-price">~$18</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">⚡</div>
+        <div class="item-info"><div class="item-name">Magnesium Glycinate / Bisglycinate</div><div class="item-detail">Look for "glycinate" not "oxide" — better absorbed</div></div>
+        <div class="item-qty">200–400 capsule bottle</div><div class="item-price">~$22</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🌿</div>
+        <div class="item-info"><div class="item-name">Milk Thistle (Silymarin 140mg+)</div><div class="item-detail">Nature's Bounty or Kirkland brand</div></div>
+        <div class="item-qty">200 capsule bottle</div><div class="item-price">~$22</div>
+      </div>
+      <div class="item-row">
+        <div class="item-check" onclick="checkItem(this)"></div>
+        <div class="item-emoji">🔋</div>
+        <div class="item-info"><div class="item-name">Acetyl L-Carnitine (500mg)</div><div class="item-detail">NOW Foods or Natrol brand · If not in stock, try Walmart as backup</div></div>
+        <div class="item-qty">60–120 capsule bottle</div><div class="item-price">~$28</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+
+  <div class="budget">
+    <div>
+      <div class="bb-label">🛒 Estimated Weekly Total</div>
+      <div class="bb-amount">~$145–165 CAD</div>
+    </div>
+    <div class="bb-note">
+      💡 Supplements (D3, Mg, Milk Thistle, ALCAR) are a one-time purchase lasting 2–6 months. Olive oil, quinoa, rice and stock last 2–4 weeks. True weekly grocery cost after the first run is closer to <strong>$90–110 CAD</strong>.<br><br>
+      📦 Freeze extra shrimp, salmon and bread immediately when you get home.
+    </div>
+  </div>
+
+  <div class="tip" style="margin-top:8px">
+    <div class="tip-icon">❄️</div>
+    <div class="tip-text">
+      <strong>Freeze on arrival:</strong>
+      🐟 Fish fillets — portion into 150–200g pieces, wrap tightly, freeze. Thaw in fridge overnight.
+      🍤 Shrimp — freeze in original bag; thaw under cold running water in 5 min.
+      🍞 Bread — freeze one loaf right away; toast straight from frozen.
+      🥑 Avocados — buy a mix of ripe (eat in 1–2 days) and firm (ready by Wed–Thu).
+    </div>
+  </div>
+
+  <div class="footer">
+    📍 Costco Wholesale — 1499 Regent Ave W, Winnipeg, MB R2C 4M4 · (204) 654-4214<br>
+    Mon–Fri 9:00am–8:30pm · Sat–Sun 9:00am–6:00pm<br>
+    Prices are approximate CAD estimates for March 2026 · Actual prices may vary
+  </div>
+
+</div>
+
+<script>
+const TOTAL_ITEMS = 45;
+function checkItem(el){
+  el.classList.toggle('checked');
+  el.textContent = el.classList.contains('checked') ? '✓' : '';
+  const row = el.closest('.item-row');
+  if(row) row.classList.toggle('checked-row', el.classList.contains('checked'));
+  updateProgress();
+}
+function updateProgress(){
+  const checked = document.querySelectorAll('.item-check.checked').length;
+  const pct = Math.round((checked/TOTAL_ITEMS)*100);
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = checked+' of '+TOTAL_ITEMS+' items checked ('+pct+'%)';
+}
+function toggleAisle(id){
+  document.getElementById('aisle-'+id).classList.toggle('collapsed');
+}
+</script>
+
+</body>
+</html>
