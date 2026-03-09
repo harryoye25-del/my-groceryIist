@@ -4,18 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
 <title>🛒 Costco Regent Ave — Grocery List</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --green:#2ecc71;--gd:#1a8a4a;--blue:#1a6fa0;
-  --orange:#f0932b;--yellow:#f9ca24;--bg:#fffef5;
-  --r:16px;--sh:0 6px 22px rgba(0,0,0,.09);--shl:0 14px 40px rgba(0,0,0,.14);
-}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:#2d3436;min-height:100vh;}
+body{font-family:'Nunito',sans-serif;background:#fffef5;color:#2d3436;min-height:100vh;}
 
-/* HERO */
 .hero{background:linear-gradient(135deg,#c0392b,#e74c3c 55%,#f1948a);
 padding:38px 24px 82px;text-align:center;clip-path:ellipse(110% 100% at 50% 0%);position:relative;}
 .hero-emoji{font-size:2rem;letter-spacing:5px;margin-bottom:10px;animation:fl 3s ease-in-out infinite;}
@@ -29,51 +24,45 @@ padding:4px 12px;border-radius:999px;font-weight:800;font-size:.75rem;}
 
 .wrap{max-width:1040px;margin:0 auto;padding:0 15px 60px;}
 
-/* NAV */
 .nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:-40px 0 26px;position:relative;z-index:10;}
 .nav a{background:#fff;border:3px solid #e0e0e0;border-radius:999px;padding:7px 17px;
 font-family:‘Fredoka One’,cursive;font-size:.86rem;text-decoration:none;color:#2d3436;
-box-shadow:var(–sh);transition:all .2s;}
-.nav a:hover,.nav a.on{background:var(–green);color:#fff;border-color:var(–gd);transform:translateY(-2px);}
+box-shadow:0 6px 22px rgba(0,0,0,.09);transition:all .2s;}
+.nav a:hover,.nav a.on{background:#2ecc71;color:#fff;border-color:#1a8a4a;transform:translateY(-2px);}
 
-/* ROUTE */
 .route-box{background:linear-gradient(135deg,#e8f5ff,#dceeff);border:3px solid #74b9ff;
-border-radius:var(–r);padding:17px 20px;margin-bottom:22px;}
-.route-box h3{font-family:‘Fredoka One’,cursive;font-size:1.1rem;color:var(–blue);margin-bottom:10px;}
+border-radius:16px;padding:17px 20px;margin-bottom:22px;}
+.route-box h3{font-family:‘Fredoka One’,cursive;font-size:1.1rem;color:#1a6fa0;margin-bottom:10px;}
 .route{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
 .rs{background:#fff;border:2px solid #74b9ff;border-radius:9px;padding:4px 10px;
-font-weight:800;font-size:.74rem;color:var(–blue);}
+font-weight:800;font-size:.74rem;color:#1a6fa0;}
 .ra{color:#74b9ff;font-size:.9rem;}
 
-/* PROGRESS */
 .pb-wrap{background:#e0e0e0;border-radius:999px;height:10px;margin:13px 0 4px;overflow:hidden;}
-.pb{background:linear-gradient(90deg,var(–gd),var(–green));height:100%;border-radius:999px;transition:width .5s;width:0%;}
-.pl{font-size:.74rem;font-weight:800;color:var(–gd);text-align:right;margin-bottom:13px;}
+.pb{background:linear-gradient(90deg,#1a8a4a,#2ecc71);height:100%;border-radius:999px;transition:width .5s;width:0%;}
+.pl{font-size:.74rem;font-weight:800;color:#1a8a4a;text-align:right;margin-bottom:13px;}
 
-/* TIP */
-.tip{background:linear-gradient(135deg,#fef9e7,#fdebd0);border:3px solid var(–yellow);
+.tip{background:linear-gradient(135deg,#fef9e7,#fdebd0);border:3px solid #f9ca24;
 border-radius:13px;padding:11px 15px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;}
 .ti{font-size:1.4rem;flex-shrink:0;}
 .tt{font-size:.79rem;font-weight:700;line-height:1.55;color:#7a4a00;}
 .tt strong{color:#c67c10;}
 
-/* SAVE/PRINT BAR */
-.action-bar{background:linear-gradient(135deg,#1a4a80,#2980b9);border-radius:var(–r);
+.action-bar{background:linear-gradient(135deg,#1a4a80,#2980b9);border-radius:16px;
 padding:16px 20px;margin-bottom:22px;display:flex;flex-wrap:wrap;align-items:center;
-gap:10px;box-shadow:var(–shl);}
+gap:10px;box-shadow:0 14px 40px rgba(0,0,0,.14);}
 .ab-title{font-family:‘Fredoka One’,cursive;font-size:1.1rem;color:#fff;flex:1;}
 .ab-btn{background:#fff;border:none;border-radius:10px;padding:8px 16px;
 font-family:‘Fredoka One’,cursive;font-size:.88rem;cursor:pointer;
 display:flex;align-items:center;gap:6px;transition:all .2s;color:#2d3436;}
 .ab-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2);}
-.ab-btn.green{background:var(–gd);color:#fff;}
-.ab-btn.green:hover{background:var(–green);}
+.ab-btn.green{background:#1a8a4a;color:#fff;}
+.ab-btn.green:hover{background:#2ecc71;}
 .ab-btn.red{background:#e74c3c;color:#fff;}
 
-/* AISLE */
-.ac{border-radius:var(–r);margin-bottom:15px;overflow:hidden;box-shadow:var(–sh);
-border:3px solid transparent;transition:box-shadow .2s;}
-.ac:hover{box-shadow:var(–shl);}
+.ac{border-radius:16px;margin-bottom:15px;overflow:hidden;
+box-shadow:0 6px 22px rgba(0,0,0,.09);border:3px solid transparent;transition:box-shadow .2s;}
+.ac:hover{box-shadow:0 14px 40px rgba(0,0,0,.14);}
 .ah{padding:11px 17px;display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none;}
 .ai-icon{font-size:1.65rem;}
 .ai-name{font-family:‘Fredoka One’,cursive;font-size:1.08rem;}
@@ -84,7 +73,6 @@ border:3px solid transparent;transition:box-shadow .2s;}
 .ab{background:#fff;}
 .ac.col .ab{display:none;}
 
-/* ITEM ROW */
 .ir{display:grid;grid-template-columns:32px 25px 1fr auto auto;
 align-items:center;gap:7px;padding:9px 15px;border-bottom:1.5px solid #f0f0f0;transition:background .15s;}
 .ir:last-child{border-bottom:none;}
@@ -92,41 +80,40 @@ align-items:center;gap:7px;padding:9px 15px;border-bottom:1.5px solid #f0f0f0;tr
 .ir.ck{opacity:.48;text-decoration:line-through;}
 .chk{width:20px;height:20px;border-radius:5px;border:2.5px solid #ccc;cursor:pointer;
 display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;font-size:.8rem;}
-.chk.on{border-color:var(–gd);background:var(–gd);color:#fff;}
+.chk.on{border-color:#1a8a4a;background:#1a8a4a;color:#fff;}
 .ie{font-size:1.15rem;text-align:center;}
 .in{min-width:0;}
 .nm{font-weight:800;font-size:.83rem;}
 .dt{font-size:.7rem;color:#aaa;font-weight:600;margin-top:1px;}
 .qty{font-size:.73rem;font-weight:800;color:#777;text-align:right;white-space:nowrap;}
-.pr{font-size:.8rem;font-weight:800;color:var(–gd);text-align:right;white-space:nowrap;min-width:46px;}
+.pr{font-size:.8rem;font-weight:800;color:#1a8a4a;text-align:right;white-space:nowrap;min-width:46px;}
 
-/* PICKER SECTION */
 .ps{padding:11px 15px 13px;background:#f6fff6;border-top:2px dashed #b8f0cc;}
-.ps-title{font-family:‘Fredoka One’,cursive;font-size:.9rem;color:var(–gd);margin-bottom:9px;}
+.ps-title{font-family:‘Fredoka One’,cursive;font-size:.9rem;color:#1a8a4a;margin-bottom:9px;}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:9px;}
 .pb-box{background:#fff;border:2px solid #d0f0dc;border-radius:11px;padding:9px 11px;
 transition:border-color .2s,box-shadow .2s;}
-.pb-box:hover{border-color:var(–green);box-shadow:0 3px 9px rgba(46,204,113,.18);}
+.pb-box:hover{border-color:#2ecc71;box-shadow:0 3px 9px rgba(46,204,113,.18);}
 .pb-lbl{font-size:.68rem;font-weight:800;color:#999;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;}
 .pb-sel{width:100%;border:none;background:transparent;font-family:‘Nunito’,sans-serif;
 font-weight:700;font-size:.79rem;color:#2d3436;cursor:pointer;outline:none;
-appearance:none;-webkit-appearance:none;
+-webkit-appearance:none;appearance:none;
 background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘11’ height=‘7’ viewBox=‘0 0 11 7’%3E%3Cpath d=‘M1 1l4.5 4.5L10 1’ stroke=’%231a8a4a’ stroke-width=‘1.8’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);
 background-repeat:no-repeat;background-position:right 3px center;padding-right:18px;}
-.add-btn{margin-top:6px;width:100%;background:var(–gd);color:#fff;border:none;
+.add-btn{margin-top:6px;width:100%;background:#1a8a4a;color:#fff;border:none;
 border-radius:7px;padding:5px 0;font-family:‘Fredoka One’,cursive;font-size:.79rem;
 cursor:pointer;transition:background .2s;}
-.add-btn:hover{background:var(–green);}
+.add-btn:hover{background:#2ecc71;}
 .tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
-.tag{background:var(–gd);color:#fff;border-radius:999px;
+.tag{background:#1a8a4a;color:#fff;border-radius:999px;
 padding:2px 9px;font-size:.68rem;font-weight:800;display:flex;align-items:center;gap:4px;}
 .tag .x{cursor:pointer;opacity:.7;font-size:.8rem;}
 .tag .x:hover{opacity:1;}
 
-/* BUDGET */
-.budget{background:linear-gradient(135deg,var(–yellow),var(–orange));
-border-radius:var(–r);padding:15px 20px;margin:18px 0;
-display:flex;flex-wrap:wrap;align-items:center;gap:11px;box-shadow:var(–shl);color:#fff;}
+.budget{background:linear-gradient(135deg,#f9ca24,#f0932b);
+border-radius:16px;padding:15px 20px;margin:18px 0;
+display:flex;flex-wrap:wrap;align-items:center;gap:11px;
+box-shadow:0 14px 40px rgba(0,0,0,.14);color:#fff;}
 .bl{font-family:‘Fredoka One’,cursive;font-size:1.15rem;}
 .ba{font-family:‘Fredoka One’,cursive;font-size:1.85rem;}
 .bn{font-size:.77rem;font-weight:700;opacity:.95;margin-left:auto;max-width:380px;}
@@ -145,7 +132,7 @@ display:flex;flex-wrap:wrap;align-items:center;gap:11px;box-shadow:var(–shl);c
 .c-sau{border-color:#ca6f1e;}.c-sau .ah{background:linear-gradient(135deg,#935116,#e59866);color:#fff;}
 .c-hlt{border-color:#7d3c98;}.c-hlt .ah{background:linear-gradient(135deg,#6c3483,#a29bfe);color:#fff;}
 
-/* PRINT MODAL */
+/* MODAL */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;
 align-items:center;justify-content:center;}
 .modal-bg.show{display:flex;}
@@ -156,7 +143,6 @@ max-height:90vh;overflow-y:auto;position:relative;}
 .modal-close{position:absolute;top:14px;right:16px;font-size:1.4rem;cursor:pointer;
 color:#888;background:none;border:none;font-weight:900;}
 .modal-close:hover{color:#e74c3c;}
-.print-list{}
 .print-section{margin-bottom:14px;}
 .print-section h3{font-family:‘Fredoka One’,cursive;font-size:1rem;padding:6px 10px;
 border-radius:8px;margin-bottom:6px;color:#fff;}
@@ -166,22 +152,21 @@ border-bottom:1px solid #f0f0f0;font-size:.82rem;}
 .print-cb{width:14px;height:14px;border:2px solid #ccc;border-radius:3px;flex-shrink:0;}
 .print-name{flex:1;font-weight:700;}
 .print-qty{font-size:.73rem;color:#888;font-weight:600;margin-right:6px;}
-.print-price{font-weight:800;color:var(–gd);white-space:nowrap;}
+.print-price{font-weight:800;color:#1a8a4a;white-space:nowrap;}
 .extra-item{background:#e8fff0;}
 .modal-btns{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;}
 .m-btn{padding:9px 20px;border:none;border-radius:10px;font-family:‘Fredoka One’,cursive;
 font-size:.9rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;}
-.m-btn.print{background:var(–gd);color:#fff;}
-.m-btn.print:hover{background:var(–green);}
+.m-btn.print{background:#1a8a4a;color:#fff;}
+.m-btn.print:hover{background:#2ecc71;}
 .m-btn.copy{background:#2980b9;color:#fff;}
 .m-btn.copy:hover{background:#3498db;}
 .m-btn.close{background:#eee;color:#555;}
 .m-btn.close:hover{background:#ddd;}
 .modal-total{background:#f0fff4;border:2px solid #b8f0cc;border-radius:10px;
-padding:10px 14px;margin-top:12px;font-weight:800;font-size:.85rem;color:var(–gd);}
+padding:10px 14px;margin-top:12px;font-weight:800;font-size:.85rem;color:#1a8a4a;}
 
 .footer{text-align:center;padding:22px;font-size:.73rem;color:#bbb;font-weight:700;}
-.footer a{color:var(–gd);}
 
 @media(max-width:580px){
 .ir{grid-template-columns:28px 22px 1fr auto;}
@@ -190,7 +175,7 @@ padding:10px 14px;margin-top:12px;font-weight:800;font-size:.85rem;color:var(–
 }
 @media print{
 body *{visibility:hidden;}
-.modal,  .modal *{visibility:visible;}
+.modal,.modal *{visibility:visible;}
 .modal{position:fixed;left:0;top:0;width:100%;max-height:none;overflow:visible;
 border-radius:0;box-shadow:none;}
 .modal-btns,.modal-close{display:none!important;}
@@ -199,8 +184,6 @@ border-radius:0;box-shadow:none;}
 
 </head>
 <body>
-
-<!-- HERO -->
 
 <div class="hero">
   <div class="hero-emoji">🛒🏪🥩🐟🥦🧀🥚🥫❄️💊</div>
@@ -211,7 +194,7 @@ border-radius:0;box-shadow:none;}
     <span class="badge">🗓️ 1-Week Supply</span>
     <span class="badge">💰 ~$145–165 CAD</span>
     <span class="badge">🛍️ 6-Option Pickers per Aisle</span>
-    <span class="badge">🖨️ Save & Print List</span>
+    <span class="badge">🖨️ Save &amp; Print List</span>
   </div>
 </div>
 
@@ -223,8 +206,6 @@ border-radius:0;box-shadow:none;}
   <a href="#" class="on">🛒 Grocery List</a>
 </div>
 
-<!-- ROUTE -->
-
 <div class="route-box">
   <h3>🗺️ Walk Order — Regent Ave Costco</h3>
   <div class="route">
@@ -233,26 +214,22 @@ border-radius:0;box-shadow:none;}
     <div class="rs">🥩 Fresh Meat</div><span class="ra">→</span>
     <div class="rs">🐟 Seafood</div><span class="ra">→</span>
     <div class="rs">🥦 Produce</div><span class="ra">→</span>
-    <div class="rs">🧀 Dairy & Eggs</div><span class="ra">→</span>
-    <div class="rs">🧻 Paper & Cleaning</div><span class="ra">→</span>
+    <div class="rs">🧀 Dairy &amp; Eggs</div><span class="ra">→</span>
+    <div class="rs">🧻 Paper &amp; Cleaning</div><span class="ra">→</span>
     <div class="rs">🏠 Household</div><span class="ra">→</span>
     <div class="rs">🥫 Grocery</div><span class="ra">→</span>
     <div class="rs">❄️ Frozen</div><span class="ra">→</span>
-    <div class="rs">🫙 Sauces & Oils</div><span class="ra">→</span>
-    <div class="rs">💊 Health & Supplements</div>
+    <div class="rs">🫙 Sauces &amp; Oils</div><span class="ra">→</span>
+    <div class="rs">💊 Health &amp; Supplements</div>
   </div>
 </div>
-
-<!-- PROGRESS -->
 
 <div class="pb-wrap"><div class="pb" id="pb"></div></div>
 <div class="pl" id="pl">0 of 45 items checked</div>
 
-<!-- SAVE/PRINT BAR -->
-
 <div class="action-bar">
   <div class="ab-title">📋 My Grocery List</div>
-  <button class="ab-btn green" onclick="openPrint()">🖨️ Save & Print List</button>
+  <button class="ab-btn green" onclick="openPrint()">🖨️ Save &amp; Print List</button>
   <button class="ab-btn" onclick="copyList()">📋 Copy to Clipboard</button>
   <button class="ab-btn red" onclick="clearAll()">🗑️ Clear All</button>
 </div>
@@ -260,13 +237,11 @@ border-radius:0;box-shadow:none;}
 <div class="tip">
   <div class="ti">💡</div>
   <div class="tt">
-    <strong>How to use:</strong> Check off items as you shop. Each aisle has <strong>6 dropdown options</strong> with real Costco Canada MB prices. Pick extras and tap <strong>+ Add to Cart</strong>. When ready, hit <strong>Save & Print List</strong> to get a clean printable summary of everything — planned items + your extras.
+    <strong>How to use:</strong> Check off items as you shop. Each aisle has <strong>dropdown options</strong> with real Costco Canada MB prices. Pick extras and tap <strong>+ Add to Cart</strong>. When ready, hit <strong>Save &amp; Print List</strong> for a clean printable summary.
   </div>
 </div>
 
-<!-- ════════════ AISLES ════════════ -->
-
-<!-- 1 ENTRANCE -->
+<!-- ENTRANCE -->
 
 <div class="ac c-ent" id="a-ent">
   <div class="ah" onclick="tog('ent')">
@@ -278,41 +253,35 @@ border-radius:0;box-shadow:none;}
   </div>
 </div>
 
-<!-- 2 BAKERY -->
+<!-- BAKERY -->
 
 <div class="ac c-bak" id="a-bak">
   <div class="ah" onclick="tog('bak')">
-    <span class="ai-icon">🍞</span><span class="ai-name">2 · Bakery & Bread</span>
+    <span class="ai-icon">🍞</span><span class="ai-name">2 · Bakery &amp; Bread</span>
     <div class="am"><span class="pill">2 items</span><span class="pill">~$14</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍞</div><div class="in"><div class="nm">Dempster's Whole Grain Bread</div><div class="dt">2-pack · Mon, Tue, Fri, Sun breakfasts</div></div><div class="qty">2-pack ~900g</div><div class="pr">~$8</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫓</div><div class="in"><div class="nm">Ryvita Rye Crispbreads</div><div class="dt">Wed breakfast · Near artisan breads</div></div><div class="qty">1 pkg</div><div class="pr">~$6</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Bakery — select & add extras</div>
-      <div class="pg" id="pg-bak"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Bakery — select &amp; add extras</div><div class="pg" id="pg-bak"></div></div>
   </div>
 </div>
 
-<!-- 3 MEAT -->
+<!-- MEAT -->
 
 <div class="ac c-mea" id="a-mea">
   <div class="ah" onclick="tog('mea')">
-    <span class="ai-icon">🥩</span><span class="ai-name">3 · Fresh Meat & Deli</span>
+    <span class="ai-icon">🥩</span><span class="ai-name">3 · Fresh Meat &amp; Deli</span>
     <div class="am"><span class="pill">2 items</span><span class="pill">~$28</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧈</div><div class="in"><div class="nm">Extra Firm Tofu (Sunrise Soya / Kirkland)</div><div class="dt">Near deli · Tue breakfast, Sat lunch, Mon dinner</div></div><div class="qty">3-pack 350g ea</div><div class="pr">~$8</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🐟</div><div class="in"><div class="nm">MB Supreme White Fish Fillet (Cod/Haddock)</div><div class="dt">✨ Winnipeg exclusive · Ask butcher · Tue & Fri dinner</div></div><div class="qty">~1 kg portioned</div><div class="pr">~$20</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Fresh Meat — select & add extras</div>
-      <div class="pg" id="pg-mea"></div>
-    </div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🐟</div><div class="in"><div class="nm">MB Supreme White Fish Fillet (Cod/Haddock)</div><div class="dt">✨ Winnipeg exclusive · Ask butcher · Tue &amp; Fri dinner</div></div><div class="qty">~1 kg portioned</div><div class="pr">~$20</div></div>
+    <div class="ps"><div class="ps-title">🛒 Also in Fresh Meat — select &amp; add extras</div><div class="pg" id="pg-mea"></div></div>
   </div>
 </div>
 
-<!-- 4 SEAFOOD -->
+<!-- SEAFOOD -->
 
 <div class="ac c-sea" id="a-sea">
   <div class="ah" onclick="tog('sea')">
@@ -321,16 +290,13 @@ border-radius:0;box-shadow:none;}
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍣</div><div class="in"><div class="nm">Kirkland Atlantic Salmon Fillets</div><div class="dt">Skin-on preferred · Mon lunch, Thu dinner</div></div><div class="qty">~700g (2 fillets)</div><div class="pr">~$20</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍤</div><div class="in"><div class="nm">Sea Scallops (dry-packed ONLY)</div><div class="dt">❗ NOT brine-packed — won't sear · Wed & Sat dinner</div></div><div class="qty">~400g</div><div class="pr">~$20</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍤</div><div class="in"><div class="nm">Sea Scallops (dry-packed ONLY)</div><div class="dt">❗ NOT brine-packed — won't sear · Wed &amp; Sat dinner</div></div><div class="qty">~400g</div><div class="pr">~$20</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🐟</div><div class="in"><div class="nm">Kirkland Smoked Salmon Pacific</div><div class="dt">Refrigerated section · Sun breakfast</div></div><div class="qty">454g (1 lb)</div><div class="pr">~$18</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Seafood — select & add extras</div>
-      <div class="pg" id="pg-sea"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Seafood — select &amp; add extras</div><div class="pg" id="pg-sea"></div></div>
   </div>
 </div>
 
-<!-- 5 PRODUCE -->
+<!-- PRODUCE -->
 
 <div class="ac c-pro" id="a-pro">
   <div class="ah" onclick="tog('pro')">
@@ -343,33 +309,30 @@ border-radius:0;box-shadow:none;}
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍅</div><div class="in"><div class="nm">Cherry Tomatoes (Campari)</div><div class="dt">Used in almost every meal</div></div><div class="qty">1.5 kg</div><div class="pr">~$8</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥒</div><div class="in"><div class="nm">English Cucumbers</div><div class="dt">Multiple meals all week</div></div><div class="qty">6-pack</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫑</div><div class="in"><div class="nm">Mini Sweet Bell Peppers (mixed)</div><div class="dt">Mon, Wed, Fri, Sat, Sun meals</div></div><div class="qty">2 lb bag</div><div class="pr">~$7</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥦</div><div class="in"><div class="nm">Broccoli Crowns</div><div class="dt">Mon & Thu dinner</div></div><div class="qty">2-pack ~1.4kg</div><div class="pr">~$5</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥦</div><div class="in"><div class="nm">Broccoli Crowns</div><div class="dt">Mon &amp; Thu dinner</div></div><div class="qty">2-pack ~1.4kg</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥒</div><div class="in"><div class="nm">Zucchini</div><div class="dt">Wed, Sat, Sun dinners</div></div><div class="qty">4-pack ~1.2kg</div><div class="pr">~$4</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍄</div><div class="in"><div class="nm">Cremini Mushrooms</div><div class="dt">Wed breakfast sauté</div></div><div class="qty">907g (2 lb)</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧅</div><div class="in"><div class="nm">Yellow Onions</div><div class="dt">Cooking base all week</div></div><div class="qty">5 lb bag</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧅</div><div class="in"><div class="nm">Red Onions</div><div class="dt">Salsas, salads, skewers</div></div><div class="qty">3 lb bag</div><div class="pr">~$4</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧄</div><div class="in"><div class="nm">Garlic (pre-peeled jar or 3-bulb)</div><div class="dt">Used every day</div></div><div class="qty">jar or 3-bulb pack</div><div class="pr">~$5</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧄</div><div class="in"><div class="nm">Garlic (pre-peeled jar or 3-bulb)</div><div class="dt">Used every day</div></div><div class="qty">jar or 3-bulb</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫚</div><div class="in"><div class="nm">Fresh Ginger Root</div><div class="dt">Mon, Thu, Fri curry</div></div><div class="qty">~200g knob</div><div class="pr">~$3</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥔</div><div class="in"><div class="nm">Baby Potatoes (Yellow/Creamer)</div><div class="dt">Tue, Sat, Sun dinners</div></div><div class="qty">3 lb bag</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍠</div><div class="in"><div class="nm">Sweet Potatoes</div><div class="dt">Sat lunch Buddha bowl</div></div><div class="qty">5 lb bag (use 2)</div><div class="pr">~$6</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥑</div><div class="in"><div class="nm">Hass Avocados</div><div class="dt">Mon, Thu, Fri, Sat · Mix ripe + firm</div></div><div class="qty">6–8 pack</div><div class="pr">~$8</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍋</div><div class="in"><div class="nm">Lemons</div><div class="dt">Dressings & garnishes all week</div></div><div class="qty">5 lb bag ~10</div><div class="pr">~$6</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍋</div><div class="in"><div class="nm">Lemons</div><div class="dt">Dressings &amp; garnishes all week</div></div><div class="qty">5 lb bag ~10</div><div class="pr">~$6</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍊</div><div class="in"><div class="nm">Navel / Cara Cara Oranges</div><div class="dt">Mon breakfast + snacking</div></div><div class="qty">8 lb bag</div><div class="pr">~$8</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍐</div><div class="in"><div class="nm">Bartlett / Bosc Pears</div><div class="dt">Sun lunch + snacking</div></div><div class="qty">3 lb bag ~6</div><div class="pr">~$6</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥭</div><div class="in"><div class="nm">Ataulfo / Champagne Mangoes</div><div class="dt">Thu & Fri salsas</div></div><div class="qty">Box of 6</div><div class="pr">~$8</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌿</div><div class="in"><div class="nm">Fresh Herb Multipack</div><div class="dt">Dill, parsley, cilantro, mint · End-caps</div></div><div class="qty">Multipack</div><div class="pr">~$4</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Produce — select & add extras</div>
-      <div class="pg" id="pg-pro"></div>
-    </div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥭</div><div class="in"><div class="nm">Ataulfo / Champagne Mangoes</div><div class="dt">Thu &amp; Fri salsas</div></div><div class="qty">Box of 6</div><div class="pr">~$8</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌿</div><div class="in"><div class="nm">Fresh Herb Multipack</div><div class="dt">Dill, parsley, cilantro, mint</div></div><div class="qty">Multipack</div><div class="pr">~$4</div></div>
+    <div class="ps"><div class="ps-title">🛒 Also in Produce — select &amp; add extras</div><div class="pg" id="pg-pro"></div></div>
   </div>
 </div>
 
-<!-- 6 DAIRY -->
+<!-- DAIRY -->
 
 <div class="ac c-dai" id="a-dai">
   <div class="ah" onclick="tog('dai')">
-    <span class="ai-icon">🧀</span><span class="ai-name">6 · Dairy & Eggs</span>
+    <span class="ai-icon">🧀</span><span class="ai-name">6 · Dairy &amp; Eggs</span>
     <div class="am"><span class="pill">4 items</span><span class="pill">~$34</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
@@ -377,31 +340,25 @@ border-radius:0;box-shadow:none;}
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧀</div><div class="in"><div class="nm">Paneer (Nanak or Gopi)</div><div class="dt">Wed lunch, Fri breakfast, Sun dinner</div></div><div class="qty">400g block</div><div class="pr">~$8</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫙</div><div class="in"><div class="nm">Liberté 0% Greek Yogurt Plain</div><div class="dt">Wed dressing, Fri raita, Sun tzatziki</div></div><div class="qty">750g tub</div><div class="pr">~$7</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥛</div><div class="in"><div class="nm">Silk Unsweetened Almond Milk</div><div class="dt">Thu breakfast smoothie</div></div><div class="qty">2-pack 1.89L ea</div><div class="pr">~$7</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Dairy & Eggs — select & add extras</div>
-      <div class="pg" id="pg-dai"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Dairy &amp; Eggs — select &amp; add extras</div><div class="pg" id="pg-dai"></div></div>
   </div>
 </div>
 
-<!-- 7 PAPER -->
+<!-- PAPER -->
 
 <div class="ac c-pap" id="a-pap">
   <div class="ah" onclick="tog('pap')">
-    <span class="ai-icon">🧻</span><span class="ai-name">7 · Paper & Cleaning</span>
+    <span class="ai-icon">🧻</span><span class="ai-name">7 · Paper &amp; Cleaning</span>
     <div class="am"><span class="pill">if needed</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧻</div><div class="in"><div class="nm">Kirkland Paper Towels</div><div class="dt">Stock item — grab if running low</div></div><div class="qty">12-pack</div><div class="pr">~$28</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🚽</div><div class="in"><div class="nm">Kirkland Bath Tissue</div><div class="dt">Stock item — grab if running low</div></div><div class="qty">30-pack</div><div class="pr">~$24</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Paper & Cleaning — select & add extras</div>
-      <div class="pg" id="pg-pap"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Paper &amp; Cleaning — select &amp; add extras</div><div class="pg" id="pg-pap"></div></div>
   </div>
 </div>
 
-<!-- 8 HOUSEHOLD -->
+<!-- HOUSEHOLD -->
 
 <div class="ac c-hh" id="a-hh">
   <div class="ah" onclick="tog('hh')">
@@ -409,20 +366,17 @@ border-radius:0;box-shadow:none;}
     <div class="am"><span class="pill">if needed</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🛍️</div><div class="in"><div class="nm">Kirkland Gallon Freezer Zip-Lock Bags</div><div class="dt">For portioning & freezing bulk fish/meat</div></div><div class="qty">150-count box</div><div class="pr">~$18</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🛍️</div><div class="in"><div class="nm">Kirkland Gallon Freezer Zip-Lock Bags</div><div class="dt">For portioning &amp; freezing bulk fish/meat</div></div><div class="qty">150-count box</div><div class="pr">~$18</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧴</div><div class="in"><div class="nm">Dish Soap or Hand Soap</div><div class="dt">Stock item — grab if running low</div></div><div class="qty">2-pack</div><div class="pr">~$12</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Household — select & add extras</div>
-      <div class="pg" id="pg-hh"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Household — select &amp; add extras</div><div class="pg" id="pg-hh"></div></div>
   </div>
 </div>
 
-<!-- 9 GROCERY -->
+<!-- GROCERY -->
 
 <div class="ac c-gro" id="a-gro">
   <div class="ah" onclick="tog('gro')">
-    <span class="ai-icon">🥫</span><span class="ai-name">9 · Grocery — Dry, Canned & Pantry</span>
+    <span class="ai-icon">🥫</span><span class="ai-name">9 · Grocery — Dry, Canned &amp; Pantry</span>
     <div class="am"><span class="pill">11 items</span><span class="pill">~$102</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
@@ -435,87 +389,72 @@ border-radius:0;box-shadow:none;}
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌱</div><div class="in"><div class="nm">Kirkland Chia Seeds</div><div class="dt">Thu breakfast smoothie bowl</div></div><div class="qty">1.36 kg bag</div><div class="pr">~$14</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌾</div><div class="in"><div class="nm">Low-Sugar Granola (Nature's Path)</div><div class="dt">Thu breakfast · under 6g sugar/serving</div></div><div class="qty">1.36 kg bag</div><div class="pr">~$12</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫙</div><div class="in"><div class="nm">Low-Sodium Vegetable / Chicken Stock</div><div class="dt">Sun lunch soup</div></div><div class="qty">6-pack 946ml ea</div><div class="pr">~$12</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌿</div><div class="in"><div class="nm">Spices: Cumin, Turmeric, Paprika, Garlic Powder, Oregano</div><div class="dt">Kirkland large jars — used all week</div></div><div class="qty">Jars ×5</div><div class="pr">~$5–8 ea</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍵</div><div class="in"><div class="nm">Green Tea (Kirkland or Bigelow)</div><div class="dt">Tue & Fri breakfast · Supports liver health</div></div><div class="qty">100+ bag box</div><div class="pr">~$10</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Grocery — select & add extras</div>
-      <div class="pg" id="pg-gro"></div>
-    </div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌿</div><div class="in"><div class="nm">Spices: Cumin, Turmeric, Paprika, Garlic Powder, Oregano</div><div class="dt">Kirkland large jars — used all week</div></div><div class="qty">Jars x5</div><div class="pr">~$5 ea</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍵</div><div class="in"><div class="nm">Green Tea (Kirkland or Bigelow)</div><div class="dt">Tue &amp; Fri breakfast · Supports liver health</div></div><div class="qty">100+ bag box</div><div class="pr">~$10</div></div>
+    <div class="ps"><div class="ps-title">🛒 Also in Grocery — select &amp; add extras</div><div class="pg" id="pg-gro"></div></div>
   </div>
 </div>
 
-<!-- 10 FROZEN -->
+<!-- FROZEN -->
 
 <div class="ac c-frz" id="a-frz">
   <div class="ah" onclick="tog('frz')">
-    <span class="ai-icon">❄️</span><span class="ai-name">10 · Frozen Seafood & Foods</span>
+    <span class="ai-icon">❄️</span><span class="ai-name">10 · Frozen Seafood &amp; Foods</span>
     <div class="am"><span class="pill">5 items</span><span class="pill">~$56</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🍤</div><div class="in"><div class="nm">Kirkland Raw Shrimp Peeled Deveined Tail-off</div><div class="dt">31–40 count · Mon, Thu, Sat</div></div><div class="qty">1.36 kg bag</div><div class="pr">~$22</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫘</div><div class="in"><div class="nm">Frozen Shelled Edamame (no shells)</div><div class="dt">Sat lunch Buddha bowl</div></div><div class="qty">1 kg bag</div><div class="pr">~$6</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫐</div><div class="in"><div class="nm">Kirkland Frozen Mixed Berries</div><div class="dt">Tue & Thu breakfast, snacking</div></div><div class="qty">2.27 kg bag</div><div class="pr">~$16</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫐</div><div class="in"><div class="nm">Kirkland Frozen Mixed Berries</div><div class="dt">Tue &amp; Thu breakfast, snacking</div></div><div class="qty">2.27 kg bag</div><div class="pr">~$16</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌽</div><div class="in"><div class="nm">Frozen Corn Kernels (no salt)</div><div class="dt">Sat dinner seafood salad</div></div><div class="qty">1 kg bag</div><div class="pr">~$5</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🥦</div><div class="in"><div class="nm">Frozen Broccoli Florets (backup)</div><div class="dt">Optional — if fresh runs out mid-week</div></div><div class="qty">1.36 kg bag</div><div class="pr">~$7</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Frozen — select & add extras</div>
-      <div class="pg" id="pg-frz"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Frozen — select &amp; add extras</div><div class="pg" id="pg-frz"></div></div>
   </div>
 </div>
 
-<!-- 11 SAUCES -->
+<!-- SAUCES -->
 
 <div class="ac c-sau" id="a-sau">
   <div class="ah" onclick="tog('sau')">
-    <span class="ai-icon">🫙</span><span class="ai-name">11 · Sauces & Oils</span>
+    <span class="ai-icon">🫙</span><span class="ai-name">11 · Sauces &amp; Oils</span>
     <div class="am"><span class="pill">3 items</span><span class="pill">~$34</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫙</div><div class="in"><div class="nm">Kirkland EVOO (cold-pressed)</div><div class="dt">Used every day for cooking</div></div><div class="qty">3L bottle</div><div class="pr">~$18</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🧴</div><div class="in"><div class="nm">Kirkland Low-Sodium Soy Sauce</div><div class="dt">Mon stir-fry, Sat lunch</div></div><div class="qty">1.89L bottle</div><div class="pr">~$8</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🫙</div><div class="in"><div class="nm">Toasted Sesame Oil</div><div class="dt">Mon stir-fry, Sat lunch dressing</div></div><div class="qty">500ml bottle</div><div class="pr">~$8</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Sauces & Oils — select & add extras</div>
-      <div class="pg" id="pg-sau"></div>
-    </div>
+    <div class="ps"><div class="ps-title">🛒 Also in Sauces &amp; Oils — select &amp; add extras</div><div class="pg" id="pg-sau"></div></div>
   </div>
 </div>
 
-<!-- 12 HEALTH -->
+<!-- HEALTH -->
 
 <div class="ac c-hlt" id="a-hlt">
   <div class="ah" onclick="tog('hlt')">
-    <span class="ai-icon">💊</span><span class="ai-name">12 · Health & Supplements</span>
+    <span class="ai-icon">💊</span><span class="ai-name">12 · Health &amp; Supplements</span>
     <div class="am"><span class="pill">4 items</span><span class="pill">~$90</span><span class="chev">▼</span></div>
   </div>
   <div class="ab">
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">☀️</div><div class="in"><div class="nm">Kirkland Vitamin D3 2000 IU</div><div class="dt">600-count · lasts ~2 years</div></div><div class="qty">600 softgels</div><div class="pr">~$18</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">⚡</div><div class="in"><div class="nm">Magnesium Glycinate / Bisglycinate</div><div class="dt">Look for "glycinate" not "oxide"</div></div><div class="qty">200–400 capsules</div><div class="pr">~$22</div></div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">⚡</div><div class="in"><div class="nm">Magnesium Glycinate / Bisglycinate</div><div class="dt">Look for "glycinate" not "oxide"</div></div><div class="qty">200 to 400 capsules</div><div class="pr">~$22</div></div>
     <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🌿</div><div class="in"><div class="nm">Milk Thistle (Silymarin 140mg+)</div><div class="dt">Nature's Bounty or Kirkland</div></div><div class="qty">200 capsules</div><div class="pr">~$22</div></div>
-    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🔋</div><div class="in"><div class="nm">Acetyl L-Carnitine 500mg</div><div class="dt">NOW Foods or Natrol · Walmart backup if not stocked</div></div><div class="qty">60–120 capsules</div><div class="pr">~$28</div></div>
-    <div class="ps">
-      <div class="ps-title">🛒 Also in Health & Supplements — select & add extras</div>
-      <div class="pg" id="pg-hlt"></div>
-    </div>
+    <div class="ir"><div class="chk" onclick="ci(this)"></div><div class="ie">🔋</div><div class="in"><div class="nm">Acetyl L-Carnitine 500mg</div><div class="dt">NOW Foods or Natrol · Walmart backup if not stocked</div></div><div class="qty">60 to 120 capsules</div><div class="pr">~$28</div></div>
+    <div class="ps"><div class="ps-title">🛒 Also in Health &amp; Supplements — select &amp; add extras</div><div class="pg" id="pg-hlt"></div></div>
   </div>
 </div>
 
-<!-- BUDGET -->
-
 <div class="budget">
   <div><div class="bl">🛒 Estimated Weekly Total</div><div class="ba">~$145–165 CAD</div></div>
-  <div class="bn">Supplements are a one-time purchase (2–6 months). Oil, quinoa, rice & stock last 2–4 weeks. True weekly cost after first run ≈ <strong>$90–110 CAD</strong>. Prices from Costco Canada MB flyers 2025 — may vary.</div>
+  <div class="bn">Supplements are a one-time purchase (2–6 months). Oil, quinoa, rice &amp; stock last 2–4 weeks. True weekly cost after first run ≈ <strong>$90–110 CAD</strong>. Prices from Costco Canada MB flyers 2025 — may vary.</div>
 </div>
 
 <div class="footer">
   📍 Costco Wholesale — 1499 Regent Ave W, Winnipeg MB · (204) 654-4214<br>
-  Mon–Fri 9:00am–8:30pm · Sat–Sun 9:00am–6:00pm<br>
-  Product data: Costco Canada BC/AB/SK/<strong>MB</strong> flyers &amp; catalogues 2025
+  Mon–Fri 9:00am–8:30pm · Sat–Sun 9:00am–6:00pm
 </div>
 </div>
 
-<!-- PRINT MODAL -->
+<!-- MODAL -->
 
 <div class="modal-bg" id="modal">
   <div class="modal">
@@ -533,777 +472,78 @@ border-radius:0;box-shadow:none;}
 </div>
 
 <script>
-// ── PICKER DATA ──────────────────────────────────────────────
 const PICKERS = {
   bak:[
-    {label:'Breads & Loaves', opts:[
-      'Dempster\'s Ancient Grains w/Quinoa 3×600g | $8.49',
-      'Olivier\'s White Sourdough 2×800g | $9.99',
-      'Natural Bakery Canadian Rye Bread 3×500g | $6.99',
-      'Carbonaut Seeded Keto Bread 2×544g | $11.99',
-      'Byblos Tandoori Naan 12×100g | $6.99',
-      'Famiglia Sunflower Flax Bread 2 loaves | $7.99',
-      'Silver Hills Big Red Sprouted Grain Bread 2pk | $8.99',
-      'Dempster\'s Multigrain Sandwich Bread 2pk | $7.49',
-      'Ace Bakery Country Harvest White Bread 2pk | $9.49',
-      'Dave\'s Killer Bread 21 Whole Grains 2pk | $10.99',
-    ]},
-    {label:'Buns, Rolls & Bagels', opts:[
-      'Portofino Brioche Deluxe Artisan Buns 12×80g | $7.49',
-      'Portofino Sourdough Buns 12×85g | $7.99',
-      'Ace Bakery Ciabatta Corta Rolls 10pk | $7.99',
-      'The Grain Escape Plain Bagels 8×82g | $7.99',
-      'POM Everything Bagels 2×6pk | $8.49',
-      'Martin\'s Potato Rolls 723g | $7.49',
-      'Portofino Whole Wheat Dinner Rolls 24pk | $8.49',
-      'Kirkland Signature Sesame Seed Buns 16pk | $7.49',
-      'ACE Bakery Rustic Onion Buns 8pk | $8.49',
-      'Thomas\' English Muffins 24ct | $9.99',
-    ]},
-    {label:'Tortillas & Flatbreads', opts:[
-      'Dempster\'s Original Tortillas 36×61g | $9.99',
-      'Dempster\'s 100% Whole Wheat Tortillas 36×61g | $9.99',
-      'Dempster\'s Garden Vegetable Tortillas 24×61g | $8.49',
-      'Oroweat Keto 7in Tortillas 15×41g | $7.99',
-      'Sunrise Pita Company Pita Bread 24×58g | $4.99',
-      'Byblos Crispy Garlic Naan 2×500g | $6.99',
-      'La Tortilla Factory Low-Carb Wraps 30ct | $10.49',
-      'Mission Extra Thin Tortillas 40ct | $9.49',
-      'Guerrero Flour Tortillas Soft Taco 80ct | $9.99',
-      'Stonefire Artisan Flatbread 6pk | $7.99',
-    ]},
-    {label:'Muffins, Cakes & Sweets', opts:[
-      'Coffee Walnut Muffins w/ Butter 850g | $7.99',
-      'Almond Poppy Muffins w/ Buttermilk 870g | $7.99',
-      'Le Chic Patissier French Macarons 36ct 460g | $14.99',
-      'Delici Sea Salt Caramel Mousse 6×76g | $10.99',
-      'Dessert Italiano Fresh Tiramisu 6×85g | $9.99',
-      'Karen\'s Bakery Danish Puff Pastry 640g | $11.99',
-      'Costco Chocolate Chunk Cookies 24ct 1.3kg | $12.99',
-      'Schaaf Foods Marble Loaf Cakes 3pk | $12.99',
-      'Two-Bite Brownies 1.36kg | $10.99',
-      'Kirkland Signature Croissants 12ct | $8.99',
-    ]},
-    {label:'Pastries & Croissants', opts:[
-      'Kirkland Butter Croissants 12ct | $8.99',
-      'La Boulangere Chocolate Croissants 12ct | $10.99',
-      'Cuisine France All-Butter Pain au Chocolat 12ct | $11.99',
-      'Costco Cheese Danish 6ct | $8.49',
-      'Kirkland Cinnamon Rolls 6ct 1kg | $9.99',
-      'Portofino Butter Puff Pastry Twists 600g | $8.99',
-      'La Boulangere Almond Croissants 8ct | $10.99',
-      'Costco Apple Turnovers 12ct | $9.99',
-      'Vie de France Mini Croissants 24ct | $9.49',
-      'Kirkland Blueberry Muffins 12ct 1kg | $8.99',
-    ]},
-    {label:'Specialty & Seasonal', opts:[
-      'Kirkland Panettone Holiday Bread 1kg | $14.99',
-      'Costco Pumpkin Pie (seasonal) 1.16kg | $7.99',
-      'Kirkland Carrot Cake 1.1kg | $14.99',
-      'Tres Leches Cake slice 8ct | $16.99',
-      'Costco Cheesecake Original 1.9kg | $17.99',
-      'Costco Tuxedo Cake 1.36kg | $18.99',
-      'Costco Mousse Cake (seasonal) | $16.99',
-      'Costco Apple Pie 1.1kg | $13.99',
-      'Kirkland Banana Bread Loaf 850g | $7.99',
-      'Costco Sticky Toffee Pudding 6pk | $12.99',
-    ]},
+    {label:'Breads & Loaves',opts:["Dempster's Ancient Grains w/Quinoa 3x600g | $8.49","Olivier's White Sourdough 2x800g | $9.99","Natural Bakery Canadian Rye Bread 3x500g | $6.99","Carbonaut Seeded Keto Bread 2x544g | $11.99","Byblos Tandoori Naan 12x100g | $6.99","Silver Hills Big Red Sprouted Grain Bread 2pk | $8.99","Dave's Killer Bread 21 Whole Grains 2pk | $10.99","Ace Bakery Country Harvest White Bread 2pk | $9.49"]},
+    {label:'Buns, Rolls & Bagels',opts:["Portofino Brioche Deluxe Artisan Buns 12x80g | $7.49","Portofino Sourdough Buns 12x85g | $7.99","Ace Bakery Ciabatta Corta Rolls 10pk | $7.99","The Grain Escape Plain Bagels 8x82g | $7.99","POM Everything Bagels 2x6pk | $8.49","Thomas' English Muffins 24ct | $9.99"]},
+    {label:'Tortillas & Flatbreads',opts:["Dempster's Original Tortillas 36x61g | $9.99","Dempster's 100% Whole Wheat Tortillas 36x61g | $9.99","Oroweat Keto 7in Tortillas 15x41g | $7.99","Sunrise Pita Company Pita Bread 24x58g | $4.99","Mission Extra Thin Tortillas 40ct | $9.49"]},
+    {label:'Muffins & Pastries',opts:["Coffee Walnut Muffins 850g | $7.99","Kirkland Butter Croissants 12ct | $8.99","Kirkland Blueberry Muffins 12ct 1kg | $8.99","Kirkland Cinnamon Rolls 6ct 1kg | $9.99","Karen's Bakery Danish Puff Pastry 640g | $11.99"]},
   ],
   mea:[
-    {label:'Chicken', opts:[
-      'Yorkshire Farms Organic Chicken Breast 2kg | $35.99',
-      'Erie Meats Chicken Thighs Bone-in 2kg | $21.99',
-      'Kirkland Rotisserie Chicken ~1kg | $8.99',
-      'Yorkshire Valley Organic Chicken Meatballs 1.38kg | $19.99',
-      'Kirkland Canned Chicken Breast 6×354g | $20.99',
-      'Sunrise Farms Broccoli & Cheese Stuffed Chicken 8×142g | $13.99',
-      'Kirkland Boneless Skinless Chicken Breasts 2.5kg | $22.99',
-      'Maple Leaf Prime Chicken Wings 2kg | $18.99',
-      'Lilydale Oven Roasted Chicken Breast Sliced 2×500g | $16.99',
-      'Sunrise Farms Chicken Strips Breaded 1.5kg | $16.99',
-    ]},
-    {label:'Beef & Pork', opts:[
-      'Kirkland Ground Beef Extra Lean 2.27kg | $26.99',
-      'Kirkland Beef Striploin Steak ~1.1kg | $42.99',
-      'Stoney Creek Steak Bites 2×400g | $19.99',
-      'Kirkland Sliced Bacon 4×500g | $26.99',
-      'Kirkland Low Salt Bacon 4×500g | $26.99',
-      'Kirkland Beef Hot Dogs 3-pack | $18.99',
-      'Kirkland Boneless Pork Loin Chops ~2kg | $24.99',
-      'Kirkland Beef Tenderloin ~1kg | $54.99',
-      'Maple Leaf Pork Back Ribs ~2kg | $26.99',
-      'Kirkland Italian Sausages Fresh 1.5kg | $18.99',
-    ]},
-    {label:'Deli Meats & Sausage', opts:[
-      'Freybe Sliced Cervelat Salami 3×250g | $16.99',
-      'Grimm\'s Natural Fresh Pepperoni 2×750g | $18.99',
-      'Gio Gourmet Sliced Meat Variety 500g | $20.99',
-      'Johnsonville Sausage Variety Pack | $18.99',
-      'Freybe Hungarian Winter Salami 2×250g | $14.99',
-      'Maple Leaf Natural Deli Sliced Turkey 2×500g | $17.99',
-      'Schneiders Country Naturals Ham 2×500g | $14.99',
-      'Kirkland Prosciutto di Parma 500g | $18.99',
-      'Freybe Chorizo Sausage 2×350g | $15.99',
-      'Grimm\'s Smokies Sausage 4×340g | $19.99',
-    ]},
-    {label:'Plant-Based', opts:[
-      'Beyond Meat Plant-Based Burgers 8×113g | $18.99',
-      'Fontaine Santé Classic Hummus 2×675g | $9.99',
-      'Fontaine Santé Roasted Red Pepper Hummus 2×675g | $9.99',
-      'Bothwell Sliced Cheese Variety Pack 720g | $14.99',
-      'Sunrise Soya Soft Silken Tofu 6×349g | $9.99',
-      'Gardein Plant-Based Meatballs 1kg | $15.99',
-      'Impossible Burger Plant-Based 6×113g | $18.99',
-      'Lightlife Tempeh Organic 3×240g | $14.99',
-      'Field Roast Plant-Based Sausages 4×100g | $12.99',
-      'Yves Veggie Cuisine Ground Round 4×340g | $14.99',
-    ]},
-    {label:'Prepared & Marinated', opts:[
-      'Costco Teriyaki Chicken Skewers ~600g | $16.99',
-      'Kirkland Marinated Tri-Tip ~1kg | $29.99',
-      'Costco Lemon Herb Chicken Thighs ~1.5kg | $19.99',
-      'Kirkland Applewood Smoked Pulled Pork 1.36kg | $18.99',
-      'Costco Garlic Butter Beef Tenderloin ~700g | $39.99',
-      'Kirkland Marinated Pork Tenderloin 2pk | $22.99',
-      'Costco Cajun Chicken Breast ~1kg | $18.99',
-      'Costco Korean BBQ Beef Short Ribs ~1.2kg | $34.99',
-      'Kirkland Seasoned Turkey Breast ~1.2kg | $21.99',
-      'Costco Honey Garlic Chicken Wings 2kg | $22.99',
-    ]},
-    {label:'Lamb & Game', opts:[
-      'Costco Australian Lamb Rack ~600g | $28.99',
-      'Kirkland Ground Lamb ~900g | $18.99',
-      'Costco New Zealand Lamb Chops ~800g | $32.99',
-      'Kirkland Lamb Shoulder Roast ~1.5kg | $24.99',
-      'Costco Bison Burgers 6×150g | $22.99',
-      'Costco Wild Boar Sausage 2×300g | $16.99',
-      'Kirkland Venison Ground ~900g | $19.99',
-      'Costco Elk Burgers 4×170g | $18.99',
-      'Costco Duck Breast ~500g | $24.99',
-      'Costco Rabbit Whole ~1.2kg | $19.99',
-    ]},
+    {label:'Chicken',opts:["Yorkshire Farms Organic Chicken Breast 2kg | $35.99","Kirkland Rotisserie Chicken ~1kg | $8.99","Kirkland Boneless Skinless Chicken Breasts 2.5kg | $22.99","Maple Leaf Prime Chicken Wings 2kg | $18.99","Lilydale Oven Roasted Chicken Breast Sliced 2x500g | $16.99"]},
+    {label:'Beef & Pork',opts:["Kirkland Ground Beef Extra Lean 2.27kg | $26.99","Kirkland Beef Striploin Steak ~1.1kg | $42.99","Kirkland Sliced Bacon 4x500g | $26.99","Kirkland Boneless Pork Loin Chops ~2kg | $24.99","Kirkland Italian Sausages Fresh 1.5kg | $18.99"]},
+    {label:'Deli Meats',opts:["Freybe Sliced Cervelat Salami 3x250g | $16.99","Maple Leaf Natural Deli Sliced Turkey 2x500g | $17.99","Schneiders Country Naturals Ham 2x500g | $14.99","Kirkland Prosciutto di Parma 500g | $18.99","Grimm's Smokies Sausage 4x340g | $19.99"]},
+    {label:'Plant-Based',opts:["Beyond Meat Plant-Based Burgers 8x113g | $18.99","Fontaine Sante Classic Hummus 2x675g | $9.99","Sunrise Soya Soft Silken Tofu 6x349g | $9.99","Gardein Plant-Based Meatballs 1kg | $15.99","Lightlife Tempeh Organic 3x240g | $14.99"]},
   ],
   sea:[
-    {label:'Fresh Fish', opts:[
-      'Kirkland Steelhead Trout Fillet ~700g | $18.99',
-      'Wild Pacific Halibut Fillet ~600g | $24.99',
-      'Kirkland Sockeye Salmon Fillet ~600g | $22.99',
-      'Arctic Char Fillet ~600g | $19.99',
-      'Kirkland Canned Wild Alaskan Pink Salmon 6×213g | $16.99',
-      'Rio Mare Tuna in Olive Oil 4×160g | $14.99',
-      'Wild Alaskan Cod Fillet ~700g | $22.99',
-      'Mahi Mahi Fillet ~600g | $24.99',
-      'Tilapia Fillets Fresh ~800g | $16.99',
-      'Sablefish (Black Cod) Fillet ~500g | $28.99',
-    ]},
-    {label:'Shellfish & Crab', opts:[
-      'Kirkland Wild Spot Prawns ~400g | $22.99',
-      'Snow Crab Clusters ~1kg | $34.99',
-      'Lobster Tails ~600g | $29.99',
-      'Dungeness Crab Whole ~1.2kg | $28.99',
-      'Littleneck Clams ~1kg | $19.99',
-      'Mussels Fresh ~1kg | $9.99',
-      'Oysters Fresh Pacific Half Shell 12pk | $19.99',
-      'King Crab Legs ~700g | $44.99',
-      'Kirkland Jumbo Shrimp Tail-on ~500g | $21.99',
-      'Octopus Tentacles ~600g | $18.99',
-    ]},
-    {label:'Smoked & Cured', opts:[
-      'Kirkland Cold Smoked Wild Salmon 680g | $26.99',
-      'Kirkland Smoked Salmon Strips 680g | $22.99',
-      'Canned Sockeye Salmon 6×213g | $18.99',
-      'Kirkland Lox Smoked Salmon Slices 2×227g | $24.99',
-      'Kirkland Canned Tuna in Water 6×170g | $12.99',
-      'Season Sardines in Olive Oil 12×106g | $14.99',
-      'Hot Smoked Wild Salmon Fillet ~300g | $19.99',
-      'Kirkland Smoked Oysters 6×85g | $12.99',
-      'Stinson Seafood Smoked Herring Fillets 6×120g | $13.99',
-      'Wildfish Cannery Smoked Coho Salmon 3×125g | $24.99',
-    ]},
-    {label:'Ready-to-Cook Seafood', opts:[
-      'Kirkland Seasoned Salmon Portions 4pk | $24.99',
-      'Marinated Shrimp Skewers ~600g | $16.99',
-      'Tempura Battered Fish Fillets 1.2kg | $18.99',
-      'Breaded Calamari Rings 1kg | $19.99',
-      'Costco Salmon Burgers 6×113g | $16.99',
-      'Poke Bowl Salmon Kit (2 servings) | $21.99',
-      'Lemon Herb Basa Fillets 1kg | $16.99',
-      'Kirkland Panko-Crusted Shrimp 1kg | $19.99',
-      'Coconut Shrimp Party Pack 1kg | $21.99',
-      'Costco Crab Cakes 8pk | $22.99',
-    ]},
-    {label:'Canned & Packaged Seafood', opts:[
-      'Kirkland Canned Wild Alaskan Pink Salmon 6×213g | $16.99',
-      'Kirkland Canned Tuna in Water 6×170g | $12.99',
-      'Rio Mare Tuna in Olive Oil 4×160g | $14.99',
-      'Season Sardines in Olive Oil 12×106g | $14.99',
-      'Kirkland Smoked Oysters 6×85g | $12.99',
-      'Stinson Seafood Smoked Herring Fillets 6×120g | $13.99',
-      'Kirkland Sockeye Salmon Canned 6×213g | $18.99',
-      'Wild Planet Albacore Tuna No Salt 6×142g | $19.99',
-      'King Oscar Mackerel in Olive Oil 6×115g | $14.99',
-      'Polar Smoked Kippers 6×92g | $10.99',
-    ]},
-    {label:'Seafood Sauces & Extras', opts:[
-      'Costco Seafood Cocktail Sauce 2×500ml | $9.99',
-      'Old Bay Seasoning 2×74g | $7.99',
-      'Kirkland Tartar Sauce 2×350ml | $8.99',
-      'Primal Kitchen No-Soy Teriyaki Sauce 500ml | $9.99',
-      'Kikkoman Ponzu Citrus Sauce 2×591ml | $11.99',
-      'Costco Lemon Butter Sauce 2×350ml | $9.99',
-      'Frank\'s RedHot Original Sauce 2×800ml | $9.99',
-      'Kirkland Horseradish Sauce 2×350ml | $8.99',
-      'Andy\'s Cajun Fish Breading 2×454g | $8.99',
-      'McCormick Seafood Seasoning Mix 3pk | $7.99',
-    ]},
+    {label:'Fresh Fish',opts:["Kirkland Steelhead Trout Fillet ~700g | $18.99","Wild Pacific Halibut Fillet ~600g | $24.99","Kirkland Sockeye Salmon Fillet ~600g | $22.99","Wild Alaskan Cod Fillet ~700g | $22.99","Mahi Mahi Fillet ~600g | $24.99","Tilapia Fillets Fresh ~800g | $16.99"]},
+    {label:'Shellfish',opts:["Kirkland Wild Spot Prawns ~400g | $22.99","Snow Crab Clusters ~1kg | $34.99","Lobster Tails ~600g | $29.99","Mussels Fresh ~1kg | $9.99","Oysters Fresh Pacific Half Shell 12pk | $19.99"]},
+    {label:'Smoked & Canned',opts:["Kirkland Cold Smoked Wild Salmon 680g | $26.99","Kirkland Canned Tuna in Water 6x170g | $12.99","Season Sardines in Olive Oil 12x106g | $14.99","Kirkland Smoked Oysters 6x85g | $12.99","Wild Planet Albacore Tuna No Salt 6x142g | $19.99"]},
+    {label:'Ready-to-Cook',opts:["Kirkland Seasoned Salmon Portions 4pk | $24.99","Marinated Shrimp Skewers ~600g | $16.99","Costco Salmon Burgers 6x113g | $16.99","Kirkland Panko-Crusted Shrimp 1kg | $19.99","Costco Crab Cakes 8pk | $22.99"]},
   ],
   pro:[
-    {label:'Fruits', opts:[
-      'Ambrosia Apples Canada Extra Fancy ~3kg | $9.99',
-      'Strawberries 2lb clamshell | $6.99',
-      'Seedless Watermelon Mini ~2kg | $7.99',
-      'Kirkland Organic Bananas ~1.5kg | $3.99',
-      'Red Seedless Grapes 2kg | $9.99',
-      'Asian Pears Product of Canada | $6.99',
-      'Blueberries Fresh 1.13kg | $9.99',
-      'Raspberries 2×170g | $6.99',
-      'Peaches or Nectarines Seasonal ~2kg | $8.99',
-      'Kirkland Organic Medjool Dates 907g | $14.99',
-    ]},
-    {label:'Vegetables', opts:[
-      'Kirkland Organic Carrots 2kg | $5.99',
-      'Cauliflower 2-pack | $7.99',
-      'Brussels Sprouts 1.5kg bag | $7.99',
-      'Celery Sticks 2-pack | $4.99',
-      'Kirkland Organic Kale 1kg | $7.99',
-      'Green Beans 1.5kg bag | $6.99',
-      'Asparagus Bunch ~1kg | $7.99',
-      'Rainbow Chard Bunch | $5.99',
-      'Kirkland Organic Romaine Hearts 6-pack | $6.99',
-      'Corn on the Cob 8-pack | $6.99',
-    ]},
-    {label:'Salad Kits', opts:[
-      'Creamy Dill Pickle Salad Kit 2-pack | $8.49',
-      'Kirkland Caesar Salad Kit 2-pack | $8.49',
-      'Dole Asian Sesame Salad Kit 2-pack | $7.99',
-      'Taylor Farms Southwest Salad Kit | $7.99',
-      'Mann\'s Power Blend Salad Kit | $8.49',
-      'Eat Smart Kale & Cabbage Salad Kit | $7.99',
-      'Taylor Farms Chopped Kit Sweet Kale | $8.49',
-      'Dole Harvest Salad Kit Teriyaki | $7.99',
-      'Organic Girl Superfood Greens 5-Blend 340g | $7.99',
-      'Ready Pac Bistro Chicken Caesar Salad Bowl 2pk | $10.99',
-    ]},
-    {label:'Dips & Snack Packs', opts:[
-      'Fontaine Santé Classic Hummus 2×675g | $9.99',
-      'Wholly Guacamole 2×454g | $11.99',
-      'Kirkland Organic Baby Carrots 2kg | $5.99',
-      'Kirkland Organic Veggie Snack Tray | $9.99',
-      'Organic Grape Tomatoes ~680g | $7.99',
-      'Little Duo Potatoes Product of Canada | $5.99',
-      'Sabra Hummus Grab & Go 12×113g | $16.99',
-      'Kirkland Broccoli & Cauliflower Florets Tray | $8.99',
-      'Mini Sweet Peppers Snack Pack 2pk | $9.99',
-      'Kirkland Organic Edamame in Shell 1kg | $7.99',
-    ]},
-    {label:'Mushrooms & Herbs', opts:[
-      'Kirkland Sliced White Mushrooms 907g | $7.99',
-      'Enoki Mushrooms 3-pack | $6.99',
-      'Shiitake Mushrooms Fresh 400g | $8.99',
-      'Organic Mixed Mushrooms ~500g | $9.99',
-      'Costco Fresh Basil Large Bunch | $4.99',
-      'Costco Fresh Dill 100g | $3.99',
-      'Costco Fresh Cilantro 100g | $3.99',
-      'Costco Rosemary & Thyme Bundle | $4.99',
-      'Organic Baby Arugula 142g | $5.99',
-      'Costco Microgreens Mix 113g | $6.99',
-    ]},
-    {label:'Specialty Produce', opts:[
-      'Kirkland Organic Medjool Dates 907g | $14.99',
-      'Broccolini Bunch ~500g | $5.99',
-      'Romanesco Broccoli ~600g | $6.99',
-      'Costco Bok Choy Bundle | $4.99',
-      'Napa Cabbage ~1.5kg | $4.99',
-      'Kirkland Organic Edamame Shelled 1kg | $7.99',
-      'Fennel Bulb 2-pack | $5.99',
-      'Artichoke Hearts Jarred 2×398ml | $8.99',
-      'Kirkland Sun-Dried Tomatoes 2×454g | $12.99',
-      'Roasted Red Peppers Jarred 2×700ml | $9.99',
-    ]},
+    {label:'Fruits',opts:["Ambrosia Apples Canada Extra Fancy ~3kg | $9.99","Strawberries 2lb clamshell | $6.99","Seedless Watermelon Mini ~2kg | $7.99","Kirkland Organic Bananas ~1.5kg | $3.99","Red Seedless Grapes 2kg | $9.99","Blueberries Fresh 1.13kg | $9.99"]},
+    {label:'Vegetables',opts:["Kirkland Organic Carrots 2kg | $5.99","Cauliflower 2-pack | $7.99","Brussels Sprouts 1.5kg bag | $7.99","Green Beans 1.5kg bag | $6.99","Asparagus Bunch ~1kg | $7.99","Kirkland Organic Romaine Hearts 6-pack | $6.99"]},
+    {label:'Salad Kits',opts:["Kirkland Caesar Salad Kit 2-pack | $8.49","Dole Asian Sesame Salad Kit 2-pack | $7.99","Taylor Farms Southwest Salad Kit | $7.99","Eat Smart Kale & Cabbage Salad Kit | $7.99","Taylor Farms Chopped Kit Sweet Kale | $8.49"]},
+    {label:'Mushrooms & Herbs',opts:["Kirkland Sliced White Mushrooms 907g | $7.99","Enoki Mushrooms 3-pack | $6.99","Shiitake Mushrooms Fresh 400g | $8.99","Costco Fresh Basil Large Bunch | $4.99","Costco Fresh Dill 100g | $3.99","Costco Fresh Cilantro 100g | $3.99"]},
   ],
   dai:[
-    {label:'Cheese', opts:[
-      'Kirkland 6-Year Old Cheddar 500g | $13.99',
-      'Philadelphia Cream Cheese 2×500g | $10.49',
-      'Kraft Cheese Slices 1.25kg | $9.99',
-      'Fromagerie Bergeron Classique 2×500g | $15.99',
-      'Babybel Variety Pack 32×20g | $13.99',
-      'Balderson 2-Year Old Cheddar 750g | $15.99',
-      'Quattro Colli Grana Padano 14-Month per kg | $24.99',
-      'Kraft Grated Parmesan 680g | $16.99',
-      'Kirkland Brie Round 1kg | $16.99',
-      'Lucerne Marble Cheddar Block 1kg | $13.99',
-    ]},
-    {label:'Yogurt & Probiotic', opts:[
-      'Danone Oikos 3% Greek Yogurt 24×100g | $18.49',
-      'Activia Probiotic Yogurt 18-pack | $11.99',
-      'Siggi\'s Icelandic Skyr Plain 1.5kg | $13.99',
-      'Kirkland Greek Yogurt 2-pack | $9.99',
-      'Quaker Instant Oatmeal 66ct | $13.99',
-      'Danone Strawberry Yogurt 24-pack | $14.99',
-      'Olympic Krema Plain Yogurt 1.75kg | $8.99',
-      'Riviera Organic Whole Milk Yogurt 2×650g | $9.99',
-      'So Delicious Coconut Milk Yogurt 6pk | $11.99',
-      'Stonyfield Organic Whole Milk Yogurt 6×170g | $10.99',
-    ]},
-    {label:'Butter & Cream', opts:[
-      'Kirkland Unsalted Butter 4×454g | $18.99',
-      'Kirkland Salted Butter 4×454g | $18.99',
-      'Gay Lea Whipping Cream 2×1L | $9.99',
-      'Lactantia Organic Sour Cream 1kg | $7.99',
-      'Lactantia Lactose-Free 2% Milk 2×2L | $8.99',
-      'Natrel Fine-Filtered Whole Milk 4L | $7.49',
-      'Organic Valley Grass-Fed Butter 2×454g | $18.99',
-      'Stirling Creamery Spreadable Butter 2kg | $18.99',
-      'Natrel Lactose-Free Coffee Cream 10% 2×1L | $9.99',
-      'Natrel Organic Whole Milk 2×2L | $10.99',
-    ]},
-    {label:'Plant-Based Dairy', opts:[
-      'Silk Oat Milk Original 6×946ml | $11.99',
-      'Silk Unsweetened Soy Milk 2×1.89L | $8.99',
-      'Silk Almond Milk Unsweetened 2×1.89L | $7.99',
-      'Oatly Oat Drink Barista 6×1L | $14.99',
-      'Good Karma Flax Milk 2×1.89L | $7.99',
-      'Kite Hill Almond Milk Yogurt 2-pack | $10.99',
-      'Ripple Pea Milk Unsweetened 2×1.89L | $10.99',
-      'Califia Farms Almond Milk Barista 6×946ml | $14.99',
-      'Earth\'s Own Oat Milk Barista 6×946ml | $12.99',
-      'Violife Vegan Cream Cheese 2×300g | $9.99',
-    ]},
-    {label:'Eggs & Egg Products', opts:[
-      'Kirkland Organic Free-Range Eggs 2 dozen | $14.99',
-      'Burnbrae Farms Omega-3 Eggs 18ct | $9.99',
-      'Kirkland Liquid Whole Eggs 1.89L | $9.99',
-      'Burnbrae Farms Simply Egg Whites 2×500ml | $9.99',
-      'Costco Hard Boiled Eggs 2 dozen | $8.99',
-      'Nature\'s Farm Omega-3 Brown Eggs 24ct | $12.99',
-      'Eggland\'s Best Extra Large Eggs 24ct | $11.99',
-      'Kirkland Cage-Free Eggs 24ct | $10.99',
-      'Sungold Egg Variety Pack 24ct | $11.49',
-      'Organic Valley Pasture-Raised Eggs 12ct | $9.99',
-    ]},
-    {label:'Specialty Cheese', opts:[
-      'Quattro Colli Grana Padano 14-Month per kg | $24.99',
-      'Kraft Grated Parmesan 680g | $16.99',
-      'Kirkland Brie Round 1kg | $16.99',
-      'Lucerne Marble Cheddar Block 1kg | $13.99',
-      'Saputo Mozzarella Fresh 3×200g | $11.99',
-      'Bothwell Gouda Smoked ~700g | $14.99',
-      'Bothwell Havarti Dill ~700g | $13.99',
-      'Kirkland Parmigiano Reggiano Wedge 500g | $17.99',
-      'Kirkland Cave Aged Gruyère ~500g | $16.99',
-      'Costco Fresh Burrata 3×125g | $14.99',
-    ]},
+    {label:'Cheese',opts:["Kirkland 6-Year Old Cheddar 500g | $13.99","Philadelphia Cream Cheese 2x500g | $10.49","Kraft Cheese Slices 1.25kg | $9.99","Balderson 2-Year Old Cheddar 750g | $15.99","Kirkland Brie Round 1kg | $16.99"]},
+    {label:'Yogurt & Probiotic',opts:["Danone Oikos 3% Greek Yogurt 24x100g | $18.49","Siggi's Icelandic Skyr Plain 1.5kg | $13.99","Kirkland Greek Yogurt 2-pack | $9.99","Olympic Krema Plain Yogurt 1.75kg | $8.99","Riviera Organic Whole Milk Yogurt 2x650g | $9.99"]},
+    {label:'Butter & Cream',opts:["Kirkland Unsalted Butter 4x454g | $18.99","Gay Lea Whipping Cream 2x1L | $9.99","Lactantia Organic Sour Cream 1kg | $7.99","Lactantia Lactose-Free 2% Milk 2x2L | $8.99","Natrel Fine-Filtered Whole Milk 4L | $7.49"]},
+    {label:'Plant-Based Dairy',opts:["Silk Oat Milk Original 6x946ml | $11.99","Silk Unsweetened Soy Milk 2x1.89L | $8.99","Oatly Oat Drink Barista 6x1L | $14.99","Kirkland Almond Milk Unsweetened 2x1.89L | $7.99","Ripple Pea Milk Unsweetened 2x1.89L | $10.99"]},
+    {label:'Eggs',opts:["Kirkland Organic Free-Range Eggs 2 dozen | $14.99","Burnbrae Farms Omega-3 Eggs 18ct | $9.99","Kirkland Liquid Whole Eggs 1.89L | $9.99","Burnbrae Farms Simply Egg Whites 2x500ml | $9.99","Nature's Farm Omega-3 Brown Eggs 24ct | $12.99"]},
   ],
   pap:[
-    {label:'Paper Products', opts:[
-      'Bounty Plus Paper Towel 12×91 sheets | $31.99',
-      'Charmin Ultra Soft 30 Rolls×200 sheets | $29.99',
-      'Purex Bathroom Tissue 40 Rolls×250 sheets | $26.99',
-      'Kirkland Facial Tissues 10×200 sheets | $19.99',
-      'Alcan Aluminum Foil Pack of 3 | $12.99',
-      'Kirkland Clear Wrap 2×305m | $14.99',
-      'Reynolds Parchment Paper 2×45m | $13.99',
-      'Kirkland Heavyweight Plastic Cups 200ct | $11.99',
-      'Kirkland Heavyweight Paper Plates 250ct | $17.99',
-      'Kirkland Assorted Cutlery Spoons/Forks/Knives 360ct | $14.99',
-    ]},
-    {label:'Laundry', opts:[
-      'Kirkland Ultra Clean Laundry Detergent 9.7L | $29.99',
-      'Tide Power Pods Hygienic Clean 79ct | $27.99',
-      'Gain Cold Water Oxi Liquid 121 loads | $14.99',
-      'Downy 2in1 Fabric Softener Seaside Spa 910g | $14.99',
-      'Purex Concentrated Cold Water 250 loads | $21.99',
-      'Downy Unstopables Light Ocean Mist 1131g | $15.97',
-      'Bounce Dryer Sheets Fresh Linen 240ct | $12.99',
-      'OxiClean White Revive Powder 2.27kg | $19.99',
-      'Arm & Hammer Plus OxiClean 88 loads | $15.99',
-      'Kirkland Colour Safe Detergent 5.73kg | $24.99',
-    ]},
-    {label:'Dishwasher & Cleaning', opts:[
-      'Cascade Platinum Plus Dishwasher Detergent 81ct | $23.99',
-      'Cascade Power Clean Dishwasher Detergent 115ct | $19.99',
-      'Jet Dry Quantum Ultra Rinse Agent 1.12L | $11.99',
-      'Kirkland Disinfecting Wipes 3×110ct | $16.99',
-      'Scrubbing Bubbles Bathroom & Shower 4×708g | $13.49',
-      'Mr. Clean Magic Eraser 30-pack | $21.99',
-      'Finish Quantum Max Powerball 90ct | $19.99',
-      'Lysol Toilet Bowl Cleaner 4×946ml | $13.99',
-      'Method All-Purpose Cleaner 828ml 2pk | $11.99',
-      'Seventh Generation Dish Liquid 4×740ml | $17.99',
-    ]},
-    {label:'Bags & Storage', opts:[
-      'Kirkland Drawstring Garbage Bags 33-gal 90ct | $24.99',
-      'Ziploc Sandwich Bags 4×150ct | $19.99',
-      'Kirkland Gallon Freezer Bags 150ct | $18.99',
-      'Kirkland Quart Storage Bags 200ct | $14.99',
-      'Scotch-Brite Lint Roller 5 Rolls×95 sheets | $16.49',
-      'Swiffer Sweeper Starter Kit | $15.99',
-      'Hefty Ultra Strong 33-gal 80ct | $22.99',
-      'Kirkland Compostable Waste Bags 80ct | $19.99',
-      'Ziploc 2-gal Big Bags 3×10ct | $14.99',
-      'Press\'n Seal Multipurpose Sealing Wrap 2×70sq ft | $13.99',
-    ]},
-    {label:'Air Fresheners & Candles', opts:[
-      'Febreze Air Heavy Duty Fresh Scent 3×250ml | $14.99',
-      'Glade Automatic Spray Refill 6pk | $16.99',
-      'Yankee Candle Large Jar 2-pack | $39.99',
-      'Kirkland Scented Candle Gift Set 4pk | $24.99',
-      'Air Wick Essential Mist Diffuser Starter | $16.99',
-      'Mrs. Meyer\'s Clean Day Room Spray 2pk | $12.99',
-      'Febreze Plug Refill Variety 6pk | $19.99',
-      'Lysol Disinfectant Spray 3×400g | $16.99',
-      'Glade Wax Melts 48ct | $14.99',
-      'Chesapeake Bay Candle 2pk | $19.99',
-    ]},
-    {label:'Pest & Safety', opts:[
-      'Kirkland Ziploc Sandwich Bags 600ct | $18.99',
-      'Rubbermaid Brilliance Storage Containers 10pc | $34.99',
-      'OXO Pop Containers Set 5pc | $49.99',
-      'Kirkland Aluminum Foil Heavy Duty 2×150sq ft | $16.99',
-      'Costco Pest Control Glue Traps 12pk | $9.99',
-      'Raid Ant & Roach Spray 3×350ml | $16.99',
-      'Wilson Fly Trap 4pk | $8.99',
-      'Bounce Rapid Touch-Up Wrinkle Releaser 2×250ml | $12.99',
-      'OxiClean Versatile Stain Remover 2.27kg | $17.99',
-      'Kirkland Microfibre Cleaning Cloths 36pk | $16.99',
-    ]},
+    {label:'Paper Products',opts:["Bounty Plus Paper Towel 12x91 sheets | $31.99","Charmin Ultra Soft 30 Rolls | $29.99","Kirkland Facial Tissues 10x200 sheets | $19.99","Alcan Aluminum Foil Pack of 3 | $12.99","Reynolds Parchment Paper 2x45m | $13.99"]},
+    {label:'Laundry',opts:["Kirkland Ultra Clean Laundry Detergent 9.7L | $29.99","Tide Power Pods 79ct | $27.99","Downy Unstopables 1131g | $15.97","Bounce Dryer Sheets 240ct | $12.99","OxiClean White Revive 2.27kg | $19.99"]},
+    {label:'Cleaning',opts:["Cascade Platinum Plus 81ct | $23.99","Kirkland Disinfecting Wipes 3x110ct | $16.99","Mr. Clean Magic Eraser 30-pack | $21.99","Lysol Toilet Bowl Cleaner 4x946ml | $13.99","Seventh Generation Dish Liquid 4x740ml | $17.99"]},
+    {label:'Bags & Storage',opts:["Kirkland Drawstring Garbage Bags 90ct | $24.99","Ziploc Sandwich Bags 4x150ct | $19.99","Kirkland Gallon Freezer Bags 150ct | $18.99","Kirkland Quart Storage Bags 200ct | $14.99","Press'n Seal Sealing Wrap 2x70sqft | $13.99"]},
   ],
   hh:[
-    {label:'Hand & Body Soaps', opts:[
-      'Essenza Glass Hand Soap 3×473ml | $14.99',
-      'Kirkland Moisture Shea Butter Hand Soap 3L | $12.99',
-      'Softsoap Liquid Hand Soap 3×1.18L | $14.99',
-      'Dove Body Wash 3×946ml | $19.99',
-      'Australian Botanical Bar Soap 8×193g | $16.97',
-      'Burt\'s Bees Lip Balm Pack of 8 | $17.99',
-      'Irish Spring Bar Soap 20×90g | $16.99',
-      'Dove Sensitive Skin Bar Soap 16×90g | $16.99',
-      'Jergens Original Scent Body Lotion 2×800ml | $17.99',
-      'Aveeno Daily Moisturizing Lotion 2×532ml | $19.99',
-    ]},
-    {label:'Hair Care', opts:[
-      'Pura D\'Or Shampoo + Conditioner 2×709ml | $26.99',
-      'Pantene Pro-V Shampoo + Conditioner 2×1L | $18.99',
-      'Head & Shoulders 2-in-1 1.36L | $14.99',
-      'Kirkland Moisture Shampoo 1L | $9.99',
-      'Shark FlexFusion Air + Ceramic Hair System | $389.99',
-      'Dove Intensive Repair Conditioner 3×355ml | $16.99',
-      'Tresemmé Pro Style Shampoo + Conditioner 2×1L | $16.99',
-      'Kenra Platinum Silkening Mist 2×200ml | $26.99',
-      'OGX Biotin & Collagen Shampoo 2×769ml | $18.99',
-      'Kirkland Argan Oil of Morocco Shampoo 2-pack | $19.99',
-    ]},
-    {label:'Dental & Oral Care', opts:[
-      'Crest Complete + Scope 5×170ml | $15.99',
-      'Sensodyne Toothpaste 6×75ml | $18.99',
-      'Kirkland Dental Floss 4×55m | $9.99',
-      'Listerine Mouthwash 2×1.5L | $14.99',
-      'Oral-B Electric Toothbrush Heads 8pk | $34.99',
-      'Colgate Total Toothpaste 6×170ml | $14.99',
-      'Oral-B iO Series 6 Electric Toothbrush | $89.99',
-      'Waterpik Cordless Water Flosser | $69.99',
-      'Arm & Hammer Spinbrush Replacement Heads 10pk | $19.99',
-      'Therabreath Fresh Breath Mouthwash 2×1L | $19.99',
-    ]},
-    {label:'Skincare & Cosmetics', opts:[
-      'L\'Oreal Revitalift Night Cream 100ml | $34.99',
-      'Garnier Micellar Water 2×700ml | $23.99',
-      'Hada Labo Tokyo Super Hydration 3-Step | $34.97',
-      'Strivectin SD Advanced Moisturizing Plus 2×47ml | $69.99',
-      'Youtheory Collagen 390 tablets | $26.99',
-      'L\'Oreal Paradise Lash Mascara 1+2pk | $24.97',
-      'Neutrogena Hydro Boost Water Gel 2×50ml | $29.99',
-      'ROC Retinol Correxion Line Smoothing Serum 30ml | $39.99',
-      'CeraVe Moisturizing Cream 2×453g | $24.99',
-      'Kirkland Signature SPF 50+ Sunscreen 2×237ml | $16.99',
-    ]},
-    {label:'Shaving & Personal Care', opts:[
-      'Gillette Fusion5 Razor Blades 14ct | $44.99',
-      'Venus Swirl Razor + 10 Refills | $34.99',
-      'Schick Hydro 5 Blades 10ct | $34.99',
-      'Kirkland Shaving Cream 2×311g | $8.99',
-      'Degree Men Antiperspirant 6pk | $16.99',
-      'Secret Invisible Solid Antiperspirant 5pk | $16.99',
-      'Dove Men+Care Antiperspirant 4pk | $14.99',
-      'Native Deodorant 3pk | $19.99',
-      'Arm & Hammer Deodorant 5pk | $14.99',
-      'Kirkland Signature Latex Gloves 200ct | $18.99',
-    ]},
-    {label:'Baby & Family Care', opts:[
-      'Kirkland Baby Wipes 900ct | $24.99',
-      'Huggies Snug & Dry Diapers (size varies) 180ct | $49.99',
-      'Pampers Swaddlers Diapers (size varies) 164ct | $49.99',
-      'Kirkland Pull-Ups Training Pants 3T-4T 128ct | $32.99',
-      'Johnson\'s Baby Shampoo 3×591ml | $12.99',
-      'Aveeno Baby Daily Lotion 3×227g | $16.99',
-      'Seventh Generation Baby Laundry Detergent 4.43L | $22.99',
-      'Kirkland Baby Formula (if applicable) | $29.99',
-      'WaterWipes Baby Wipes 720ct | $22.99',
-      'Mustela Hydra Bebe Body Lotion 2×300ml | $19.99',
-    ]},
+    {label:'Hand & Body Soaps',opts:["Essenza Glass Hand Soap 3x473ml | $14.99","Softsoap Liquid Hand Soap 3x1.18L | $14.99","Dove Body Wash 3x946ml | $19.99","Irish Spring Bar Soap 20x90g | $16.99","Aveeno Daily Moisturizing Lotion 2x532ml | $19.99"]},
+    {label:'Hair Care',opts:["Pantene Pro-V Shampoo + Conditioner 2x1L | $18.99","Head & Shoulders 2-in-1 1.36L | $14.99","Dove Intensive Repair Conditioner 3x355ml | $16.99","OGX Biotin & Collagen Shampoo 2x769ml | $18.99"]},
+    {label:'Dental Care',opts:["Crest Complete + Scope 5x170ml | $15.99","Sensodyne Toothpaste 6x75ml | $18.99","Kirkland Dental Floss 4x55m | $9.99","Listerine Mouthwash 2x1.5L | $14.99","Colgate Total Toothpaste 6x170ml | $14.99"]},
+    {label:'Skincare',opts:["CeraVe Moisturizing Cream 2x453g | $24.99","Neutrogena Hydro Boost Water Gel 2x50ml | $29.99","Kirkland Signature SPF 50+ Sunscreen 2x237ml | $16.99","Garnier Micellar Water 2x700ml | $23.99"]},
   ],
   gro:[
-    {label:'Canned Goods & Soups', opts:[
-      'Simply Campbell\'s Chicken Broth 6×946ml | $11.99',
-      'Sprague Organic Lentil & Veg Soup 8×398ml | $16.99',
-      'Kirkland Canned Chicken Breast 6×354g | $20.99',
-      'Rio Mare Tuna in Olive Oil 4×160g | $14.99',
-      'Kirkland Wild Alaskan Pink Salmon 6×213g | $16.99',
-      'Terre Trulli Taralli Bread Rings 4×250g | $11.99',
-      'Progresso Soup Variety 6-pack | $14.99',
-      'Amy\'s Organic Soup Variety 6×400ml | $18.99',
-      'Kirkland Organic Diced Tomatoes 8×398ml | $12.99',
-      'Bush\'s Baked Beans Original 6×398ml | $11.99',
-    ]},
-    {label:'Grains, Pasta & Oats', opts:[
-      'Bob\'s Red Mill Organic Steel Cut Oats 3.18kg | $17.49',
-      'Quaker Quick Oats 5.16kg | $11.99',
-      'Lotus Foods Millet & Brown Rice Ramen 850g | $12.99',
-      'Filotea Egg Pasta Variety 4×250g | $13.49',
-      'Olivieri Skillet Gnocchi 2×480g | $9.99',
-      'Olivieri Spinach & Ricotta Cannelloni 2×540g | $10.99',
-      'Barilla Pasta Variety 8×400g | $14.99',
-      'Kirkland Organic Brown Rice Cakes 2×312g | $8.99',
-      'Nature\'s Path Organic Granola 2×850g | $18.99',
-      'Bob\'s Red Mill 10 Grain Hot Cereal 1.36kg | $10.99',
-    ]},
-    {label:'Snacks & Crackers', opts:[
-      'Christie Premium Plus Crackers 1.35kg | $9.49',
-      'Crunchmaster Multigrain Crackers 567g | $11.49',
-      'Best Express Organic Aussie Bites 850g | $12.49',
-      'Made Good Oat Cups 24×35g | $17.99',
-      'Bobo\'s Oat Bites Strawberry Lemonade 24×37g | $11.97',
-      'Poppi Soda Variety Pack 15×355ml | $19.99',
-      'SkinnyPop Popcorn Sea Salt 567g | $8.99',
-      'Kirkland Mixed Nut Bars 30ct | $18.99',
-      'Simply Protein Bar Variety 15ct | $22.99',
-      'RXBar Protein Bar Variety 14ct | $27.99',
-    ]},
-    {label:'Honey, Nut Butters & Spreads', opts:[
-      'BeeMaid Raw Honey 2kg | $17.99',
-      'Kirkland Almond Butter 765g | $12.99',
-      'Kirkland Organic Peanut Butter 2×1kg | $13.99',
-      'Nutiva Organic Coconut Oil 1.6L | $19.99',
-      'Jongga Mat Kimchi 1.5kg | $10.99',
-      'Kirkland Mixed Nuts No Peanuts 1.13kg | $19.99',
-      'Justin\'s Classic Almond Butter Squeeze Packs 10ct | $14.99',
-      'Kirkland Organic Maple Syrup 1L | $18.99',
-      'Sunbutter Sunflower Seed Butter 2×510g | $14.99',
-      'Nutella Hazelnut Spread 3kg | $19.99',
-    ]},
-    {label:'Beverages & Coffee', opts:[
-      'Kirkland Signature Colombian Coffee 1.36kg | $17.99',
-      'Starbucks Pike Place Ground Coffee 1.13kg | $19.99',
-      'Kirkland Organic Green Tea 100ct | $12.99',
-      'Kirkland Sparkling Water 35×355ml | $9.99',
-      'Kirkland Vitamin Water 24×591ml | $19.99',
-      'Nespresso Original Pods Variety 50ct | $39.99',
-      'Bigelow Variety Teas 160ct | $14.99',
-      'Kirkland Cold Brew Coffee 8×325ml | $12.99',
-      'Tropicana Orange Juice 2×1.89L | $9.99',
-      'Kirkland Almond Milk Latte 12×240ml | $14.99',
-    ]},
-    {label:'Baking & Cooking Essentials', opts:[
-      'Kirkland Pure Cane Sugar 10kg | $12.99',
-      'Kirkland All-Purpose Flour 10kg | $9.99',
-      'Arm & Hammer Baking Soda 2.72kg | $5.99',
-      'Kirkland Pure Vanilla Extract 2×236ml | $14.99',
-      'Kirkland Sea Salt Fine Grind 2.27kg | $7.99',
-      'Kirkland Black Pepper Coarse Grind 2×198g | $9.99',
-      'Ghirardelli Semi-Sweet Chocolate Chips 1.36kg | $14.99',
-      'Kirkland Bread Crumbs 2×680g | $8.99',
-      'Costco Cornstarch 4.54kg | $9.99',
-      'Fleischmann\'s Rapid Rise Yeast 3×113g | $7.99',
-    ]},
+    {label:'Canned Goods',opts:["Simply Campbell's Chicken Broth 6x946ml | $11.99","Sprague Organic Lentil Soup 8x398ml | $16.99","Kirkland Canned Chicken Breast 6x354g | $20.99","Rio Mare Tuna in Olive Oil 4x160g | $14.99","Kirkland Wild Alaskan Pink Salmon 6x213g | $16.99"]},
+    {label:'Grains & Pasta',opts:["Bob's Red Mill Organic Steel Cut Oats 3.18kg | $17.49","Quaker Quick Oats 5.16kg | $11.99","Barilla Pasta Variety 8x400g | $14.99","Nature's Path Organic Granola 2x850g | $18.99","Bob's Red Mill 10 Grain Hot Cereal 1.36kg | $10.99"]},
+    {label:'Snacks',opts:["Christie Premium Plus Crackers 1.35kg | $9.49","Crunchmaster Multigrain Crackers 567g | $11.49","SkinnyPop Popcorn Sea Salt 567g | $8.99","Kirkland Mixed Nut Bars 30ct | $18.99","RXBar Protein Bar Variety 14ct | $27.99"]},
+    {label:'Nut Butters & Honey',opts:["BeeMaid Raw Honey 2kg | $17.99","Kirkland Almond Butter 765g | $12.99","Kirkland Organic Peanut Butter 2x1kg | $13.99","Kirkland Organic Maple Syrup 1L | $18.99","Nutiva Organic Coconut Oil 1.6L | $19.99"]},
+    {label:'Beverages',opts:["Kirkland Signature Colombian Coffee 1.36kg | $17.99","Kirkland Organic Green Tea 100ct | $12.99","Kirkland Sparkling Water 35x355ml | $9.99","Bigelow Variety Teas 160ct | $14.99","Kirkland Cold Brew Coffee 8x325ml | $12.99"]},
+    {label:'Baking',opts:["Kirkland Sea Salt Fine Grind 2.27kg | $7.99","Kirkland Black Pepper Coarse Grind 2x198g | $9.99","Kirkland Pure Vanilla Extract 2x236ml | $14.99","Kirkland All-Purpose Flour 10kg | $9.99","Ghirardelli Semi-Sweet Chocolate Chips 1.36kg | $14.99"]},
   ],
   frz:[
-    {label:'Frozen Seafood', opts:[
-      'Kirkland Wild Pacific Salmon Portions 1.36kg | $26.99',
-      'Kirkland Cooked Baby Shrimp 907g | $16.99',
-      'Kirkland Sea Scallops 907g (frozen) | $29.99',
-      'Costco Breaded Fish Fillets 1.2kg | $18.99',
-      'Tempura Shrimp Tacos (seasonal) | $18.99',
-      'Kirkland Salmon Burgers 6×113g | $16.99',
-      'Kirkland Wild Pacific Cod Fillets 1.36kg | $22.99',
-      'High Liner Crispy Battered Fish 1kg | $14.99',
-      'Kirkland Jumbo Raw Shrimp 1.36kg | $24.99',
-      'Costco Lobster Mac & Cheese 1.36kg | $18.99',
-    ]},
-    {label:'Frozen Meals & Dumplings', opts:[
-      'CJ Bibigo Beef Bulgogi Mandu 1.36kg | $17.99',
-      'Kirkland Chicken Gyoza 900g | $10.99',
-      'Cuisine Adventures Mini Sausage Pastry 1.1kg | $17.99',
-      'Giovanni Rana Microwaveable Meal Kit 1.14kg | $14.49',
-      'Molinaro\'s Cauliflower Pizza Kit 2-pack 760g | $9.99',
-      'Kirkland Macaroni & Cheese 6-pack | $15.99',
-      'Amy\'s Kitchen Indian Palak Paneer 6×269g | $22.99',
-      'Bibigo Korean BBQ Chicken Dumplings 1.02kg | $15.99',
-      'Kirkland Cheese Pizza 4pk | $16.99',
-      'Stouffer\'s Lasagna with Meat Sauce 1.6kg | $13.99',
-    ]},
-    {label:'Frozen Fruit & Vegetables', opts:[
-      'Kirkland Whole Blueberries 2kg | $12.99',
-      'Kirkland Organic Frozen Spinach 2×1kg | $9.99',
-      'Cavendish Flavour Crisp Fries 4.25kg | $13.99',
-      'Kirkland Frozen Stir Fry Vegetables 2×1kg | $9.99',
-      'Birds Eye Steamfresh Broccoli 2×1kg | $7.99',
-      'Kirkland Frozen Mango Chunks 2kg | $11.99',
-      'Kirkland Frozen Organic Strawberries 2.27kg | $12.99',
-      'Green Giant Frozen Peas 2kg | $6.99',
-      'Kirkland Frozen Sweet Corn 2×1kg | $8.99',
-      'Stahlbush Island Farms Organic Kale 2×567g | $10.99',
-    ]},
-    {label:'Frozen Desserts', opts:[
-      'Kirkland Vanilla Ice Cream Mega Sandwiches 30×190ml | $17.99',
-      'Kirkland Ice Cream Tub 5.7L | $14.99',
-      'Kirkland Frozen Fruit Bars 18-pack | $12.99',
-      'Häagen-Dazs Ice Cream Bars 12-pack | $18.99',
-      'Yasso Frozen Greek Yogurt Bars 8-pack | $9.99',
-      'Kirkland Sorbet Mixed Variety 5.7L | $12.99',
-      'Magnum Almond Ice Cream Bars 18ct | $17.99',
-      'Breyers Natural Vanilla 5.7L | $13.99',
-      'Ben & Jerry\'s Variety Pack 6×473ml | $29.99',
-      'Chapman\'s Neapolitan Ice Cream 10L | $16.99',
-    ]},
-    {label:'Frozen Pizza & Snacks', opts:[
-      'Kirkland Cheese Pizza 4pk | $16.99',
-      'Dr. Oetker Ristorante Pizza Variety 4pk | $22.99',
-      'Molinaro\'s Cauliflower Pizza Kit 2-pack | $9.99',
-      'Stouffer\'s Lasagna with Meat Sauce 1.6kg | $13.99',
-      'Hot Pockets Variety 12pk | $14.99',
-      'Kirkland Spanakopita Spinach Pie 1.36kg | $14.99',
-      'Pepperidge Farm Puff Pastry Sheets 6pk | $12.99',
-      'Kirkland Samosas 36ct | $14.99',
-      'Mini Crab Cakes 24ct | $19.99',
-      'Kirkland Cheese Bread Sticks 1.36kg | $12.99',
-    ]},
-    {label:'Frozen Breakfasts', opts:[
-      'Kirkland Waffles 72ct | $12.99',
-      'Eggo Waffles Variety 72ct | $12.99',
-      'Jimmy Dean Sausage Breakfast Sandwiches 12ct | $16.99',
-      'Bob Evans Sausage Links 2×425g | $13.99',
-      'Kirkland Frozen Açaí Packs 8×100g | $14.99',
-      'Kodiak Cakes Power Waffles 2pk | $9.99',
-      'Nature\'s Path Organic Frozen Waffles 18ct | $9.99',
-      'Nestlé Carnation Breakfast Essentials 22pk | $22.99',
-      'RXBAR Frozen Protein Bar 12ct | $24.99',
-      'Costco Frozen Breakfast Burritos 30ct | $22.99',
-    ]},
+    {label:'Frozen Seafood',opts:["Kirkland Wild Pacific Salmon Portions 1.36kg | $26.99","Kirkland Cooked Baby Shrimp 907g | $16.99","Kirkland Sea Scallops 907g frozen | $29.99","Kirkland Wild Pacific Cod Fillets 1.36kg | $22.99","High Liner Crispy Battered Fish 1kg | $14.99"]},
+    {label:'Frozen Meals',opts:["CJ Bibigo Beef Bulgogi Mandu 1.36kg | $17.99","Kirkland Chicken Gyoza 900g | $10.99","Amy's Kitchen Indian Palak Paneer 6x269g | $22.99","Kirkland Macaroni & Cheese 6-pack | $15.99","Kirkland Spanakopita Spinach Pie 1.36kg | $14.99"]},
+    {label:'Frozen Fruit & Veg',opts:["Kirkland Whole Blueberries 2kg | $12.99","Kirkland Organic Frozen Spinach 2x1kg | $9.99","Kirkland Frozen Stir Fry Vegetables 2x1kg | $9.99","Kirkland Frozen Mango Chunks 2kg | $11.99","Green Giant Frozen Peas 2kg | $6.99"]},
+    {label:'Frozen Desserts',opts:["Kirkland Vanilla Ice Cream Sandwiches 30pk | $17.99","Kirkland Ice Cream Tub 5.7L | $14.99","Kirkland Frozen Fruit Bars 18-pack | $12.99","Haagen-Dazs Ice Cream Bars 12-pack | $18.99","Yasso Frozen Greek Yogurt Bars 8-pack | $9.99"]},
   ],
   sau:[
-    {label:'Cooking Oils', opts:[
-      'Bertolli Extra Light Olive Oil 3L | $29.99',
-      'Ottavio Grapeseed Oil 3L | $19.99',
-      'Kirkland Avocado Oil 2L | $18.99',
-      'Kirkland Coconut Oil 2.35L | $19.99',
-      'Arawana Rice Bran Oil 5L | $24.99',
-      'Kirkland Apple Cider Vinegar 1.89L | $7.99',
-      'Bertolli Organic Extra Virgin Olive Oil 2L | $26.99',
-      'Nutiva Organic Coconut Oil 1.6L | $19.99',
-      'Pompeian Robust Extra Virgin Olive Oil 2L | $21.99',
-      'Chosen Foods Avocado Oil Spray 3×369ml | $16.99',
-    ]},
-    {label:'Pasta Sauces & Condiments', opts:[
-      'Kirkland Organic Pasta Sauce 3×645ml | $8.99',
-      'Tartufi Jimmy Truffle & Cheese Pasta Sauce 2×500g | $14.99',
-      'Hidden Valley Ranch Dressing 2×1.18L | $13.49',
-      'Kirkland Balsamic Vinegar of Modena 1L | $9.99',
-      'Kraft Italian Dressing 2×1L | $9.99',
-      'Kirkland Greek Dressing 2×1L | $9.99',
-      'Rao\'s Homemade Marinara Sauce 2×680ml | $14.99',
-      'Kirkland Organic Ketchup 2×1.1kg | $8.99',
-      'Sir Kensington\'s Organic Mayonnaise 2×354ml | $12.99',
-      'Primal Kitchen Ranch Dressing 2×355ml | $14.99',
-    ]},
-    {label:'Asian Sauces', opts:[
-      'Kirkland Sweet Chili Sauce 2×730ml | $9.99',
-      'Kikkoman Teriyaki Sauce 1.9L | $11.99',
-      'Lee Kum Kee Oyster Sauce 2.27kg | $12.99',
-      'Costco Sriracha 2×793ml | $9.99',
-      'Kikkoman Soy Sauce 2×1.89L | $11.99',
-      'Marukan Rice Vinegar 1.89L | $8.99',
-      'House of Tsang Sesame Ginger Sauce 2×590ml | $12.99',
-      'Bibigo Gochujang Sauce 1kg | $9.99',
-      'Lee Kum Kee Hoisin Sauce 2×600ml | $10.99',
-      'Kikkoman Ponzu Citrus Sauce 2×591ml | $11.99',
-    ]},
-    {label:'Vinegars, Stocks & Extras', opts:[
-      'Kirkland Chicken Broth 6×946ml | $11.99',
-      'Kirkland Beef Broth 6×946ml | $11.99',
-      'Webber Naturals Apple Cider Vinegar 360 caps | $19.99',
-      'Kirkland Organic Maple Syrup 1L | $18.99',
-      'Lillie\'s Chicken Tender Sauce 828ml | $4.97',
-      'Poppi Throwbacks Soda 15×355ml | $19.99',
-      'Kirkland Red Wine Vinegar 1.89L | $7.99',
-      'Kirkland White Wine Vinegar 1.89L | $7.99',
-      'Bragg Liquid Aminos 946ml | $8.99',
-      'Kirkland Organic Vegetable Broth 6×946ml | $11.99',
-    ]},
+    {label:'Cooking Oils',opts:["Bertolli Extra Light Olive Oil 3L | $29.99","Kirkland Avocado Oil 2L | $18.99","Kirkland Coconut Oil 2.35L | $19.99","Kirkland Apple Cider Vinegar 1.89L | $7.99","Chosen Foods Avocado Oil Spray 3x369ml | $16.99"]},
+    {label:'Pasta Sauces',opts:["Kirkland Organic Pasta Sauce 3x645ml | $8.99","Rao's Homemade Marinara Sauce 2x680ml | $14.99","Hidden Valley Ranch Dressing 2x1.18L | $13.49","Kirkland Balsamic Vinegar of Modena 1L | $9.99","Sir Kensington's Organic Mayonnaise 2x354ml | $12.99"]},
+    {label:'Asian Sauces',opts:["Kirkland Sweet Chili Sauce 2x730ml | $9.99","Kikkoman Teriyaki Sauce 1.9L | $11.99","Lee Kum Kee Oyster Sauce 2.27kg | $12.99","Costco Sriracha 2x793ml | $9.99","Marukan Rice Vinegar 1.89L | $8.99"]},
+    {label:'Stocks & Vinegars',opts:["Kirkland Chicken Broth 6x946ml | $11.99","Kirkland Beef Broth 6x946ml | $11.99","Kirkland Red Wine Vinegar 1.89L | $7.99","Kirkland Organic Vegetable Broth 6x946ml | $11.99","Bragg Liquid Aminos 946ml | $8.99"]},
   ],
   hlt:[
-    {label:'Vitamins & Minerals', opts:[
-      'Kirkland Adult Multivitamin Gummies 250ct | $14.99',
-      'Webber Naturals Vitamin E Natural 400IU 300ct | $26.99',
-      'Webber Naturals Zinc Citrate 50mg 400ct | $12.99',
-      'Jamieson Gentle Iron Plus 28mg 250ct | $19.99',
-      'Kirkland Low Dose ASA 81mg 365ct | $6.99',
-      'Nature\'s Bounty Hair Skin & Nails Gummies 220ct | $13.99',
-      'Jamieson Vitamin C 1000mg 500ct | $19.99',
-      'Kirkland B-Complex with Electrolytes 500ct | $12.99',
-      'Webber Naturals Vitamin K2 + D3 120ct | $24.99',
-      'Nature\'s Way Alive! Women\'s 50+ Multivitamin 130ct | $26.99',
-    ]},
-    {label:'Supplements & Herbals', opts:[
-      'Kirkland Probiotic 30 Billion 90 veg caps | $24.99',
-      'Kirkland Omega-3 Fish Oil 1200mg 180ct | $18.99',
-      'Jamieson Women\'s Probiotic Advanced 65ct | $34.99',
-      'Cold-FX Extra Strength Daily Defense 150+18ct | $59.99',
-      'Webber Naturals Super Prostate Advanced 180ct | $29.99',
-      'Youtheory Collagen 390 tablets | $26.99',
-      'Webber Naturals CoQ10 200mg 120ct | $34.99',
-      'Kirkland Melatonin 10mg 360ct | $14.99',
-      'Nature\'s Bounty Biotin 10000mcg 120ct | $16.99',
-      'Garden of Life Raw Probiotic 100 Billion 30ct | $39.99',
-    ]},
-    {label:'Pain Relief & OTC', opts:[
-      'Kirkland Acetaminophen 500mg 400ct | $12.99',
-      'Kirkland Ibuprofen 400mg 120ct | $9.99',
-      'Advil Extra Strength 400mg 2×75 Liqui-Gels | $27.99',
-      'Tylenol Cold Extra Strength Day+Night 40+40ct | $19.99',
-      'Vicks DayQuil-NyQuil Honey 3×354ml | $29.99',
-      'Ricola Original Herb 2×105 lozenges | $21.49',
-      'Kirkland Naproxen Sodium 220mg 400ct | $14.99',
-      'Robax Platinum Muscle & Back Pain 72ct | $24.99',
-      'Buckley\'s Complete Cold & Flu Syrup 2×250ml | $18.99',
-      'Halls Mentho-Lyptus Cough Drops 180ct | $9.99',
-    ]},
-    {label:'Allergy, Sinus & Fibre', opts:[
-      'Reactine Allergy Extra Strength 190ct | $64.99',
-      'Kirkland Allergy Relief (Cetirizine) 200ct | $16.99',
-      'Claritin Allergy 10mg 120ct | $39.99',
-      'NeilMed Sinus Rinse 200 packets | $25.99',
-      'Metamucil Sugar Free Psyllium 228 teaspoons | $39.99',
-      'Benadryl Allergy 25mg 185 caplets | $32.99',
-      'Aerius Allergy 130 tablets | $49.99',
-      'Breathe Right Nasal Strips Extra Clear 72ct | $27.99',
-      'RestoraFibre Daily Fibre 2×140 gummies | $29.99',
-      'Otravin Complete Nasal Care 2×20ml | $14.99',
-    ]},
+    {label:'Vitamins & Minerals',opts:["Kirkland Adult Multivitamin Gummies 250ct | $14.99","Webber Naturals Vitamin E 400IU 300ct | $26.99","Webber Naturals Zinc Citrate 50mg 400ct | $12.99","Jamieson Vitamin C 1000mg 500ct | $19.99","Webber Naturals Vitamin K2+D3 120ct | $24.99"]},
+    {label:'Supplements',opts:["Kirkland Probiotic 30 Billion 90 veg caps | $24.99","Kirkland Omega-3 Fish Oil 1200mg 180ct | $18.99","Youtheory Collagen 390 tablets | $26.99","Webber Naturals CoQ10 200mg 120ct | $34.99","Kirkland Melatonin 10mg 360ct | $14.99"]},
+    {label:'Pain Relief',opts:["Kirkland Acetaminophen 500mg 400ct | $12.99","Kirkland Ibuprofen 400mg 120ct | $9.99","Advil Extra Strength 400mg 2x75 Liqui-Gels | $27.99","Kirkland Naproxen Sodium 220mg 400ct | $14.99","Robax Platinum Muscle & Back 72ct | $24.99"]},
+    {label:'Allergy & Fibre',opts:["Kirkland Allergy Relief Cetirizine 200ct | $16.99","Reactine Allergy Extra Strength 190ct | $64.99","Metamucil Sugar Free 228 teaspoons | $39.99","NeilMed Sinus Rinse 200 packets | $25.99","Breathe Right Nasal Strips 72ct | $27.99"]},
   ],
 };
 
-// Aisle display names + colours for print
 const AISLE_META = {
   ent:{name:'Entrance',col:'#8e44ad'},
   bak:{name:'Bakery & Bread',col:'#b7770d'},
@@ -1312,7 +552,7 @@ const AISLE_META = {
   pro:{name:'Fresh Produce',col:'#1a8a4a'},
   dai:{name:'Dairy & Eggs',col:'#1a6fa0'},
   pap:{name:'Paper & Cleaning',col:'#566573'},
-  hh: {name:'Household Consumables',col:'#c0392b'},
+  hh: {name:'Household',col:'#c0392b'},
   gro:{name:'Grocery Aisles',col:'#9a7d0a'},
   frz:{name:'Frozen Foods',col:'#1a4a80'},
   sau:{name:'Sauces & Oils',col:'#935116'},
@@ -1321,66 +561,46 @@ const AISLE_META = {
 
 // Render pickers
 Object.keys(PICKERS).forEach(aisle=>{
-  const grid = document.getElementById('pg-'+aisle);
+  const grid=document.getElementById('pg-'+aisle);
   if(!grid) return;
   PICKERS[aisle].forEach((cat,i)=>{
-    const bid = `sel-${aisle}-${i}`;
-    const tid = `tags-${aisle}-${i}`;
-    const box = document.createElement('div');
-    box.className = 'pb-box';
-    box.innerHTML = `
-      <div class="pb-lbl">${cat.label}</div>
-      <select class="pb-sel" id="${bid}">
-        <option value="">— choose —</option>
-        ${cat.opts.map(o=>`<option value="${o}">${o}</option>`).join('')}
-      </select>
-      <button class="add-btn" onclick="addPick('${bid}','${tid}')">+ Add to Cart</button>
-      <div class="tags" id="${tid}"></div>`;
+    const bid='sel-'+aisle+'-'+i;
+    const box=document.createElement('div');
+    box.className='pb-box';
+    box.innerHTML='<div class="pb-lbl">'+cat.label+'</div>'
+      +'<select class="pb-sel" id="'+bid+'"><option value="">— choose —</option>'
+      +cat.opts.map(o=>'<option value="'+o+'">'+o+'</option>').join('')
+      +'</select><button class="add-btn" onclick="addPick(\''+bid+'\',\''+aisle+'\')">+ Add to Cart</button>';
     grid.appendChild(box);
   });
 });
 
-function addPick(sid,tid){
+function addPick(sid,aisle){
   const sel=document.getElementById(sid);
   const val=sel.value; if(!val) return;
-
-  // Parse "Product Name qty/size | $price"
   const parts=val.split('|');
   const nm=(parts[0]||'').trim();
   const pr=(parts[1]||'').trim();
-
-  // Find the parent aisle body to inject the new item row before the picker section
-  const pickerSection=document.getElementById(tid).closest('.ps');
-  const aisleBody=pickerSection.closest('.ab');
-
-  // Prevent duplicates by checking existing injected rows
+  const card=document.getElementById('a-'+aisle);
+  const aisleBody=card.querySelector('.ab');
+  const ps=card.querySelector('.ps');
   const existing=[...aisleBody.querySelectorAll('.injected-item')].map(r=>r.dataset.v);
   if(existing.includes(val)){sel.value='';return;}
-
-  // Build a new item row matching the exact same grid style
   const row=document.createElement('div');
   row.className='ir injected-item';
   row.dataset.v=val;
   row.style.background='#f0fff4';
-  row.innerHTML=`
-    <div class="chk" onclick="ci(this)"></div>
-    <div class="ie">🛒</div>
-    <div class="in">
-      <div class="nm">${nm}</div>
-      <div class="dt" style="color:#1a8a4a;font-weight:700;">✨ Added from picker</div>
-    </div>
-    <div class="qty"></div>
-    <div class="pr">${pr}</div>
-    <div style="cursor:pointer;font-size:.8rem;color:#e74c3c;font-weight:900;padding-left:4px;"
-         onclick="this.closest('.ir').remove();up();" title="Remove">✕</div>`;
-
-  // Insert just before the picker section
-  aisleBody.insertBefore(row, pickerSection);
+  row.innerHTML='<div class="chk" onclick="ci(this)"></div>'
+    +'<div class="ie">🛒</div>'
+    +'<div class="in"><div class="nm">'+nm+'</div><div class="dt" style="color:#1a8a4a;font-weight:700;">✨ Added from picker</div></div>'
+    +'<div class="qty"></div>'
+    +'<div class="pr">'+pr+'</div>'
+    +'<div style="cursor:pointer;font-size:.8rem;color:#e74c3c;font-weight:900;padding-left:4px;" onclick="this.closest(\'.ir\').remove();up();" title="Remove">✕</div>';
+  aisleBody.insertBefore(row,ps);
   sel.value='';
   up();
 }
 
-// Check items
 const TOTAL=45;
 function ci(el){
   el.classList.toggle('on');
@@ -1392,39 +612,30 @@ function up(){
   const c=document.querySelectorAll('.chk.on').length;
   const p=Math.round(c/TOTAL*100);
   document.getElementById('pb').style.width=p+'%';
-  document.getElementById('pl').textContent=`${c} of ${TOTAL} items checked (${p}%)`;
+  document.getElementById('pl').textContent=c+' of '+TOTAL+' items checked ('+p+'%)';
 }
-
 function tog(id){document.getElementById('a-'+id).classList.toggle('col');}
-
 function clearAll(){
   document.querySelectorAll('.chk.on').forEach(el=>{el.classList.remove('on');el.textContent='';el.closest('.ir').classList.remove('ck');});
   document.querySelectorAll('.injected-item').forEach(r=>r.remove());
   up();
 }
 
-// BUILD PRINT LIST
 function buildPrintList(){
   const out=[];
-  // planned items per aisle
-  const aisleOrder=['ent','bak','mea','sea','pro','dai','pap','hh','gro','frz','sau','hlt'];
-  aisleOrder.forEach(aid=>{
+  ['ent','bak','mea','sea','pro','dai','pap','hh','gro','frz','sau','hlt'].forEach(aid=>{
     const card=document.getElementById('a-'+aid);
     if(!card) return;
     const rows=[...card.querySelectorAll('.ir')];
-    const extras=[...card.querySelectorAll('.tag')];
-    if(rows.length===0 && extras.length===0) return;
-    const meta=AISLE_META[aid];
+    if(rows.length===0) return;
     const items=[];
     rows.forEach(r=>{
       const nm=r.querySelector('.nm')?.textContent||'';
       const qty=r.querySelector('.qty')?.textContent||'';
       const pr=r.querySelector('.pr')?.textContent||'';
-      const done=r.classList.contains('ck');
-      const extra=r.classList.contains('injected-item');
-      items.push({nm,qty,pr,done,extra});
+      items.push({nm,qty,pr,done:r.classList.contains('ck'),extra:r.classList.contains('injected-item')});
     });
-    out.push({meta,items});
+    out.push({meta:AISLE_META[aid],items});
   });
   return out;
 }
@@ -1435,7 +646,7 @@ function openPrint(){
   container.innerHTML='';
   let totalItems=0;
   data.forEach(({meta,items})=>{
-    if(items.length===0) return;
+    if(!items.length) return;
     const sec=document.createElement('div');
     sec.className='print-section';
     const h3=document.createElement('h3');
@@ -1445,18 +656,14 @@ function openPrint(){
     items.forEach(it=>{
       const row=document.createElement('div');
       row.className='print-item'+(it.extra?' extra-item':'');
-      row.innerHTML=`<div class="print-cb"></div>
-        <div class="print-name">${it.nm}${it.done?' ✓':''}</div>
-        <div class="print-qty">${it.qty}</div>
-        <div class="print-price">${it.pr}</div>`;
+      row.innerHTML='<div class="print-cb"></div><div class="print-name">'+it.nm+(it.done?' ✓':'')+'</div><div class="print-qty">'+it.qty+'</div><div class="print-price">'+it.pr+'</div>';
       sec.appendChild(row);
       totalItems++;
     });
     container.appendChild(sec);
   });
   const extraCount=document.querySelectorAll('.injected-item').length;
-  document.getElementById('modal-total').textContent=
-    `📦 Total: ${totalItems} items (${TOTAL} planned + ${extraCount} extras added) · 💰 Est. base total: ~$145–165 CAD`;
+  document.getElementById('modal-total').textContent='📦 Total: '+totalItems+' items ('+TOTAL+' planned + '+extraCount+' extras) · 💰 Est. base total: ~$145–165 CAD';
   document.getElementById('modal-date').textContent=new Date().toLocaleDateString('en-CA',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   document.getElementById('modal').classList.add('show');
 }
@@ -1465,24 +672,18 @@ function closeModal(){document.getElementById('modal').classList.remove('show');
 
 function copyModal(){
   const data=buildPrintList();
-  let txt=`COSTCO REGENT AVE — GROCERY LIST\n${new Date().toLocaleDateString('en-CA')}\n${'─'.repeat(40)}\n\n`;
+  let txt='COSTCO REGENT AVE — GROCERY LIST\n'+new Date().toLocaleDateString('en-CA')+'\n'+'─'.repeat(40)+'\n\n';
   data.forEach(({meta,items})=>{
-    if(items.length===0) return;
-    txt+=`\n🏷️ ${meta.name.toUpperCase()}\n`;
-    items.forEach(it=>{
-      const chk=it.done?'[✓]':'[ ]';
-      txt+=`  ${chk} ${it.nm}${it.qty?' — '+it.qty:''}${it.pr?' '+it.pr:''}\n`;
-    });
+    if(!items.length) return;
+    txt+='\n🏷️ '+meta.name.toUpperCase()+'\n';
+    items.forEach(it=>{txt+='  '+(it.done?'[✓]':'[ ]')+' '+it.nm+(it.qty?' — '+it.qty:'')+(it.pr?' '+it.pr:'')+'\n';});
   });
-  txt+=`\n${'─'.repeat(40)}\nEst. base total: ~$145–165 CAD`;
-  navigator.clipboard.writeText(txt).then(()=>alert('✅ List copied to clipboard!')).catch(()=>alert('Copy failed — please print instead.'));
+  txt+='\n'+'─'.repeat(40)+'\nEst. base total: ~$145–165 CAD';
+  navigator.clipboard.writeText(txt).then(()=>alert('✅ List copied!')).catch(()=>alert('Copy failed — please print instead.'));
 }
-
 function copyList(){copyModal();}
 
-document.getElementById('modal').addEventListener('click',function(e){
-  if(e.target===this) closeModal();
-});
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 
 </body>
